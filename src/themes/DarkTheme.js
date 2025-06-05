@@ -7,11 +7,10 @@ const darkTheme = createTheme({
         background: '#1E1E1E',
         foreground: '#ABB2BF',
         caret: '#528BFF',
-        selection: '#264F78',
+        selection: '#528BFF',
         selectionMatch: '#264F78',
         searchHighlight: '#5A5A5A',
-
-        lineHighlight: '#222222',
+        lineHighlight: "rgba(110, 110, 110, 0.05)",
         gutterBackground: '#1E1E1E',
         gutterForeground: '#636D83',
     },

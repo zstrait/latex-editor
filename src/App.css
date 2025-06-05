@@ -178,6 +178,7 @@ body {
 .main {
     display: flex;
     flex-grow: 1;
+    min-height: 0;
 }
 
 .content-view {
@@ -187,6 +188,7 @@ body {
 
 .content-window {
     flex: 1;
+    /* overflow: hidden; */
 }
 
 /* Latex Editor Window */
@@ -201,11 +203,32 @@ body {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     border-right: 2px solid #252526;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
     padding: 8px;
 }
+
+.cm-editor {
+    height: 100% !important;
+}
+
+.cm-editor.cm-focused {
+    outline: none;
+}
+
+.cm-gutter.cm-lineNumbers {
+    min-width: 29px;
+    margin-left: -4px;
+}
+
+/* selection highlight color */
+.cm-selectionBackground,
+::selection {
+    background-color: rgba(82, 139, 255, 0.3) !important;
+}
+
+
 
 /* Latex Render Preview Window */
 .latex-render {

@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
     const [editorText, setEditorText] = useState(
-        "\\frac{N_A}{V_m} = \\frac{p}{k_B T}"
+        "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}"
     );
 
     const [textToRender, setTextToRender] = useState("");
