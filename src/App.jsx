@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Sidebar from './components/Sidebar.jsx';
 import ContentView from './components/ContentView.jsx';
 import './App.css';
 
-function App() {
-    const [editorText, setEditorText] = useState(
-        "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}"
-    );
+const RENDER_DELAY_MS = 500;
 
-    const [textToRender, setTextToRender] = useState("");
+function App() {
+    const initialEditorText = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
+    const [editorText, setEditorText] = useState(initialEditorText);
+    const [textToRender, setTextToRender] = useState(initialEditorText);
+
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setTextToRender(editorText);
+        }, RENDER_DELAY_MS);
+
+        return () => {
+            clearTimeout(timerId);
+        };
+    }, [editorText]);
 
     const handleEditorTextChange = (newText) => {
         setEditorText(newText);
