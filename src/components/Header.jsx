@@ -15,8 +15,8 @@ function Header() {
                 <div className="left-container">
                     <a className="github-button" href="https://github.com/zstraight/latex-editor" target="_blank"></a>
                     <div className="page-buttons">
-                        <button className="editor page-button">Latex Editor</button>
-                        <button className="ocr page-button">Latex OCR</button>
+                        <button className="editor page-button">LaTeX Editor</button>
+                        <button className="ocr page-button">LaTeX OCR</button>
                     </div>
                 </div>
                 <div className="right-container">
