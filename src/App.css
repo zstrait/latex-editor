@@ -136,51 +136,53 @@ body {
 }
 
 /* Tools Container */
-.help {
+.sidebar-button.help {
     background-image: url(/images/question.svg);
     background-size: 75% 75%;
 }
 
-.symbols {
+.sidebar-button.symbols {
     background-image: url(/images/sigma.svg);
     background-size: 80% 80%;
 }
 
-.formatting {
+.sidebar-button.formatting {
     background-image: url(/images/formatting.svg);
     background-size: 80% 80%;
 }
 
-.cheatsheet {
+.sidebar-button.cheatsheet {
     background-image: url(/images/keyboard.svg);
     background-size: 90% 90%;
 }
 
 
-.compile {
+.sidebar-button.compile {
     background-image: url(/images/compile.svg);
     background-size: 90% 90%;
 
 }
 
 /* Utilities Container */
-.export {
+.sidebar-button.export {
     background-image: url(/images/export.svg);
     background-size: 85% 85%;
 }
 
-.files {
+.sidebar-button.files {
     background-image: url(/images/folder.svg);
     background-size: 103%;
 }
 
-.settings {
+.sidebar-button.settings {
     background-image: url(/images/settings.svg);
     background-size: 85% 85%;
 }
 
 
 /* SIDE PANELS */
+
+/* Generic Panel Template */
 .side-panel {
     height: 250px;
     width: 250px;
@@ -193,6 +195,9 @@ body {
     border: 3px solid #252526;
     border-radius: 28px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 .side-panel::before {
@@ -208,9 +213,56 @@ body {
     margin-right: -1px;
 }
 
+.panel-content {
+    padding: 2px 8px;
+}
 
+.panel-title {
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 2px 6px #1e1e1e;
+    /* text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    font-style: italic; */
+}
 
+/* Settings Panel */
+/* .side-panel.settings-panel {
+    height: 300px;
+    width: 300px;
+} */
 
+.settings-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.setting{
+    display: flex;
+    justify-content: space-between;
+}
+
+.setting-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.setting-name {
+    font-weight: 600;
+    /* text-align: center; */
+    font-size: 16px;
+}
+
+.setting-desc {
+    font-size: 10px;
+    /* text-align: center; */
+    color: #78797F;
+}
 
 
 

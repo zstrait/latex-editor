@@ -4,8 +4,7 @@ import SidePanel from './SidePanel.jsx';
 import Settings from './Settings.jsx';
 import useClickOutside from './useClickOutside.js';
 
-
-function Sidebar({ onCompileRequest }) {
+function Sidebar({ onCompileRequest, isLiveRenderingEnabled, onLiveRenderingToggle }) {
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     const settingsPanelRef = useRef(null);
@@ -26,7 +25,9 @@ function Sidebar({ onCompileRequest }) {
                     <SidebarButton icon="formatting" />
                     <SidebarButton icon="cheatsheet" />
                 </div>
-                <SidebarButton icon="compile" onClick={onCompileRequest} />
+                {!isLiveRenderingEnabled && (
+                    <SidebarButton icon="compile" onClick={onCompileRequest} />
+                )}
                 <div className="utilities-container">
                     <SidebarButton icon="export" />
                     <SidebarButton icon="files" />
@@ -41,7 +42,10 @@ function Sidebar({ onCompileRequest }) {
                             isOpen={isSettingsOpen}
                             panelRef={settingsPanelRef}
                         >
-                            {isSettingsOpen && <Settings />}
+                            {isSettingsOpen && <Settings
+                                isLiveRendering={isLiveRenderingEnabled}
+                                onToggleLiveRendering={onLiveRenderingToggle}
+                            />}
                         </SidePanel>
                     </div>
                 </div>

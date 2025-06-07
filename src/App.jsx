@@ -10,16 +10,19 @@ function App() {
     const initialEditorText = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
     const [editorText, setEditorText] = useState(initialEditorText);
     const [textToRender, setTextToRender] = useState(initialEditorText);
+    const [isLiveRendering, setIsLiveRendering] = useState(true);
 
     useEffect(() => {
-        const timerId = setTimeout(() => {
-            setTextToRender(editorText);
-        }, RENDER_DELAY_MS);
+        if (isLiveRendering) {
+            const timerId = setTimeout(() => {
+                setTextToRender(editorText);
+            }, RENDER_DELAY_MS);
 
-        return () => {
-            clearTimeout(timerId);
-        };
-    }, [editorText]);
+            return () => {
+                clearTimeout(timerId);
+            };
+        }
+    }, [editorText, isLiveRendering]);
 
     const handleEditorTextChange = (newText) => {
         setEditorText(newText);
@@ -29,11 +32,17 @@ function App() {
         setTextToRender(editorText);
     };
 
+    const handleLiveRenderingToggle = (checked) => {
+        setIsLiveRendering(checked);
+    };
+
     return (
         <>
             <Header></Header>
             <div className="main">
-                <Sidebar onCompileRequest={handleCompileClick} />
+                <Sidebar onCompileRequest={handleCompileClick}
+                    isLiveRenderingEnabled={isLiveRendering} 
+                    onLiveRenderingToggle={handleLiveRenderingToggle} />
                 <ContentView
                     currentEditorText={editorText}
                     onTextChange={handleEditorTextChange}

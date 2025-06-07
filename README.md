@@ -1,3 +1,2 @@
-# Latex Editor  (with Live Rendering & Snippet Support)
-## [--> Link <--](https://zstraight.github.io/latex-editor/)
-
+# LaTeX Editor  (with Live Rendering & Snippet Support)
+## [--> Link <--](https://zstrait.github.io/latex-editor/)
