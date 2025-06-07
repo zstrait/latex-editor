@@ -1,5 +1,3 @@
-import React from 'react';
-
 function SidebarButton(props) {
     const buttonClasses = `sidebar-button ${props.icon || ''}`;
 

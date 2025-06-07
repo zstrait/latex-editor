@@ -1,3 +1,3 @@
 # Latex Editor  (with Live Rendering & Snippet Support)
-## [--> Link <--](https://zander.zone)
+## [--> Link <--](https://zstraight.github.io/latex-editor/)
 
