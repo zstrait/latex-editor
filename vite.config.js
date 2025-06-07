@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/latex-editor/', // IMPORTANT: Replace <repository-name>
+  base: '/latex-editor/',
 })
