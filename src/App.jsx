@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar.jsx';
 import ContentView from './components/ContentView.jsx';
 import './App.css';
 
-const RENDER_DELAY_MS = 500;
+const RENDER_DELAY_MS = 300;
 
 function App() {
     const initialEditorText = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
