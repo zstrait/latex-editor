@@ -1,1 +1,3 @@
-# Latex Editor  (with Snippet Support & Live Rendering)
+# Latex Editor  (with Live Rendering & Snippet Support)
+## [--> Link <--](https://zander.zone)
+
