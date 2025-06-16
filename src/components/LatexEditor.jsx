@@ -5,7 +5,15 @@ import { defaultKeymap } from '@codemirror/commands';
 import { keymap } from '@codemirror/view';
 import { darkTheme } from '../themes/DarkTheme.js';
 
-function LatexEditor({ text, onChange }) {
+function LatexEditor({ text, onChange, isSyntaxHighlighting }) {
+    const extensions = [
+        keymap.of(defaultKeymap),
+    ];
+
+    if (isSyntaxHighlighting) {
+        extensions.push(StreamLanguage.define(stex));
+    }
+
     return (
         <>
             <div className="latex-editor content-window">
@@ -15,10 +23,7 @@ function LatexEditor({ text, onChange }) {
                     style={{ height: '100%', border: 'none' }}
                     onChange={onChange}
                     theme={darkTheme}
-                    extensions={[
-                        StreamLanguage.define(stex),
-                        keymap.of(defaultKeymap),
-                    ]}
+                    extensions={extensions}
                     basicSetup={{
                         lineNumbers: true,
                         highlightActiveLine: true,

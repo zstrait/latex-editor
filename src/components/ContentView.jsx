@@ -2,17 +2,17 @@ import LatexEditor from './LatexEditor.jsx';
 import LatexRenderer from './LatexRenderer.jsx';
 import 'katex/dist/katex.min.css';
 
-function ContentView({ currentEditorText, onTextChange, compiledText }) {
+function ContentView({ editorText, onTextChange, textToRender, isSyntaxHighlighting }) {
     return (
         <>
             <LatexEditor
-                text={currentEditorText}
+                text={editorText}
                 onChange={onTextChange}
+                isSyntaxHighlighting={isSyntaxHighlighting}
             />
-            <LatexRenderer textToRender={compiledText} />
+            <LatexRenderer textToRender={textToRender} />
         </>
     )
-
 }
 
 export default ContentView;

@@ -11,6 +11,7 @@ function App() {
     const [editorText, setEditorText] = useState(initialEditorText);
     const [textToRender, setTextToRender] = useState(initialEditorText);
     const [isLiveRendering, setIsLiveRendering] = useState(true);
+    const [isSyntaxHighlighting, setIsSyntaxHighlighting] = useState(true);
 
     useEffect(() => {
         if (isLiveRendering) {
@@ -24,7 +25,7 @@ function App() {
         }
     }, [editorText, isLiveRendering]);
 
-    const handleEditorTextChange = (newText) => {
+    const handleTextChange = (newText) => {
         setEditorText(newText);
     };
 
@@ -36,17 +37,26 @@ function App() {
         setIsLiveRendering(checked);
     };
 
+    const handleSyntaxHighlightingToggle = (checked) => {
+        setIsSyntaxHighlighting(checked);
+    };
+
     return (
         <>
             <Header></Header>
             <div className="main">
-                <Sidebar onCompileRequest={handleCompileClick}
-                    isLiveRenderingEnabled={isLiveRendering} 
-                    onLiveRenderingToggle={handleLiveRenderingToggle} />
+                <Sidebar
+                    onCompileClick={handleCompileClick}
+                    isLiveRendering={isLiveRendering}
+                    onLiveRenderingToggle={handleLiveRenderingToggle}
+                    isSyntaxHighlighting={isSyntaxHighlighting}
+                    onSyntaxHighlightingToggle={handleSyntaxHighlightingToggle}
+                />
                 <ContentView
-                    currentEditorText={editorText}
-                    onTextChange={handleEditorTextChange}
-                    compiledText={textToRender}
+                    editorText={editorText}
+                    onTextChange={handleTextChange}
+                    textToRender={textToRender}
+                    isSyntaxHighlighting={isSyntaxHighlighting}
                 />
             </div>
         </>

@@ -1,6 +1,11 @@
 import SettingItem from "./SettingItem";
 
-function Settings({ isLiveRendering, onToggleLiveRendering }) {
+function Settings({
+    isLiveRendering,
+    onLiveRenderingToggle,
+    isSyntaxHighlighting,
+    onSyntaxHighlightingToggle
+}) {
     return (
         <>
             <div className="settings-panel panel-content">
@@ -8,9 +13,14 @@ function Settings({ isLiveRendering, onToggleLiveRendering }) {
                 <div className="settings">
                     <SettingItem
                         name={'Live Rendering'}
-                        description={'Turning off will add a manual compile button.'}
+                        description={'Turning off will add\na manual compile button.'}
                         checked={isLiveRendering}
-                        onChange={onToggleLiveRendering}
+                        onChange={onLiveRenderingToggle}
+                    />
+                    <SettingItem
+                        name={'Syntax \n Highlighting'}
+                        checked={isSyntaxHighlighting}
+                        onChange={onSyntaxHighlightingToggle}
                     />
                 </div>
             </div>

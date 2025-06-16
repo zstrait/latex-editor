@@ -4,7 +4,14 @@ import SidePanel from './SidePanel.jsx';
 import Settings from './Settings.jsx';
 import useClickOutside from './useClickOutside.js';
 
-function Sidebar({ onCompileRequest, isLiveRenderingEnabled, onLiveRenderingToggle }) {
+function Sidebar({
+    onCompileClick,
+    isLiveRendering,
+    onLiveRenderingToggle,
+    isSyntaxHighlighting,
+    onSyntaxHighlightingToggle
+}) {
+
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     const settingsPanelRef = useRef(null);
@@ -25,8 +32,8 @@ function Sidebar({ onCompileRequest, isLiveRenderingEnabled, onLiveRenderingTogg
                     <SidebarButton icon="formatting" />
                     <SidebarButton icon="cheatsheet" />
                 </div>
-                {!isLiveRenderingEnabled && (
-                    <SidebarButton icon="compile" onClick={onCompileRequest} />
+                {!isLiveRendering && (
+                    <SidebarButton icon="compile" onClick={onCompileClick} />
                 )}
                 <div className="utilities-container">
                     <SidebarButton icon="export" />
@@ -43,8 +50,10 @@ function Sidebar({ onCompileRequest, isLiveRenderingEnabled, onLiveRenderingTogg
                             panelRef={settingsPanelRef}
                         >
                             {isSettingsOpen && <Settings
-                                isLiveRendering={isLiveRenderingEnabled}
-                                onToggleLiveRendering={onLiveRenderingToggle}
+                                isLiveRendering={isLiveRendering}
+                                onLiveRenderingToggle={onLiveRenderingToggle}
+                                isSyntaxHighlighting={isSyntaxHighlighting}
+                                onSyntaxHighlightingToggle={onSyntaxHighlightingToggle}
                             />}
                         </SidePanel>
                     </div>
