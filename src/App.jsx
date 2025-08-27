@@ -6,9 +6,8 @@ import './App.css';
 
 const RENDER_DELAY_MS = 300;
 
-//
 const processLatexForRender = (text) => {
-    return text.replace('\\\\', '\\\\[1em]');
+    return text.replace(/\\\\/g, '\\\\[1em]');
 };
 
 function App() {
