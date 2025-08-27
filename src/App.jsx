@@ -6,17 +6,22 @@ import './App.css';
 
 const RENDER_DELAY_MS = 300;
 
+//
+const processLatexForRender = (text) => {
+    return text.replace('\\\\', '\\\\[1em]');
+};
+
 function App() {
     const initialEditorText = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
     const [editorText, setEditorText] = useState(initialEditorText);
-    const [textToRender, setTextToRender] = useState(initialEditorText);
+    const [textToRender, setTextToRender] = useState(processLatexForRender(initialEditorText));
     const [isLiveRendering, setIsLiveRendering] = useState(true);
     const [isSyntaxHighlighting, setIsSyntaxHighlighting] = useState(true);
 
     useEffect(() => {
         if (isLiveRendering) {
             const timerId = setTimeout(() => {
-                setTextToRender(editorText);
+                setTextToRender(processLatexForRender(editorText));
             }, RENDER_DELAY_MS);
 
             return () => {
@@ -30,7 +35,7 @@ function App() {
     };
 
     const handleCompileClick = () => {
-        setTextToRender(editorText);
+        setTextToRender(processLatexForRender(editorText));
     };
 
     const handleLiveRenderingToggle = (checked) => {

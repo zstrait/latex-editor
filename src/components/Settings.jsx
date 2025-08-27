@@ -22,6 +22,12 @@ function Settings({
                         checked={isSyntaxHighlighting}
                         onChange={onSyntaxHighlightingToggle}
                     />
+                    <SettingItem
+                        name={'Automatic \n Line Breaks'}
+                        description={'Automatically insert new line breaks (\\\\) when Enter is pressed.'}
+                    // checked={}
+                    // onChange={}
+                    />
                 </div>
             </div>
         </>
