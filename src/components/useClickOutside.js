@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 
-function useClickOutside(panelRef, buttonRef, isOpen, closePanelHandler) {
+function useClickOutside(panelRef, triggerRef, isOpen, closePanelHandler) {
     useEffect(() => {
         const handleMouseDown = (event) => {
-            if (!isOpen || !panelRef.current || !buttonRef.current) {
+            if (!isOpen || !panelRef.current) {
                 return;
             }
-            if (!panelRef.current.contains(event.target) && !buttonRef.current.contains(event.target)) {
+            if (triggerRef.current && triggerRef.current.contains(event.target)) {
+                return;
+            }
+            if (!panelRef.current.contains(event.target)) {
                 closePanelHandler();
             }
         };
@@ -19,7 +22,7 @@ function useClickOutside(panelRef, buttonRef, isOpen, closePanelHandler) {
             document.removeEventListener('mousedown', handleMouseDown);
         };
 
-    }, [isOpen, panelRef, buttonRef, closePanelHandler]); 
+    }, [isOpen, panelRef, triggerRef, closePanelHandler]);
 }
 
 export default useClickOutside;

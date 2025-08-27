@@ -1,9 +1,9 @@
-function SidebarButton(props) {
-    const buttonClasses = `sidebar-button ${props.icon || ''}`;
+function SidebarButton({icon, onClick}) {
+    const buttonClasses = `sidebar-button ${icon || ''}`;
 
     return (
         <>
-            <button className={buttonClasses} onClick={props.onClick}></button>
+            <button className={buttonClasses} onClick={onClick}></button>
         </>
     )
 }

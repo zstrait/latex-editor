@@ -5,7 +5,7 @@ import { defaultKeymap } from '@codemirror/commands';
 import { keymap } from '@codemirror/view';
 import { darkTheme } from '../themes/DarkTheme.js';
 
-function LatexEditor({ text, onChange, isSyntaxHighlighting }) {
+function LatexEditor({ editorText, onChange, isSyntaxHighlighting }) {
     const extensions = [
         keymap.of(defaultKeymap),
     ];
@@ -18,7 +18,7 @@ function LatexEditor({ text, onChange, isSyntaxHighlighting }) {
         <>
             <div className="latex-editor content-window">
                 <CodeMirror
-                    value={text}
+                    value={editorText}
                     height="100%"
                     style={{ height: '100%', border: 'none' }}
                     onChange={onChange}

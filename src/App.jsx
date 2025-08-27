@@ -54,9 +54,9 @@ function App() {
                 />
                 <ContentView
                     editorText={editorText}
-                    onTextChange={handleTextChange}
-                    textToRender={textToRender}
+                    onChange={handleTextChange}
                     isSyntaxHighlighting={isSyntaxHighlighting}
+                    textToRender={textToRender}
                 />
             </div>
         </>

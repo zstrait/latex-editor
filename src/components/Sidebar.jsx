@@ -1,8 +1,7 @@
 import { useState, useRef } from 'react';
 import SidebarButton from './SidebarButton.jsx'
-import SidePanel from './SidePanel.jsx';
 import Settings from './Settings.jsx';
-import useClickOutside from './useClickOutside.js';
+import SidebarItem from './SidebarItem.jsx';
 
 function Sidebar({
     onCompileClick,
@@ -12,55 +11,106 @@ function Sidebar({
     onSyntaxHighlightingToggle
 }) {
 
-    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const [activePanel, setActivePanel] = useState(null);
+    const sidebarRef = useRef(null);
 
-    const settingsPanelRef = useRef(null);
-    const settingsButtonRef = useRef(null);
-
-    const toggleSettingsPanel = () => {
-        setIsSettingsOpen(prevIsOpen => !prevIsOpen);
+    const handlePanelToggle = (panelName) => {
+        setActivePanel(prev => (prev === panelName ? null : panelName));
     };
 
-    useClickOutside(settingsPanelRef, settingsButtonRef, isSettingsOpen, () => setIsSettingsOpen(false));
-
+    const placeholderContent = (
+        <div className="placeholder-panel panel-content">
+            Coming Soon...
+        </div>
+    );
+    
     return (
-        <>
-            <div className="sidebar">
-                <div className="tools-container">
-                    <SidebarButton icon="help" />
-                    <SidebarButton icon="symbols" />
-                    <SidebarButton icon="formatting" />
-                    <SidebarButton icon="cheatsheet" />
-                </div>
-                {!isLiveRendering && (
-                    <SidebarButton icon="compile" onClick={onCompileClick} />
-                )}
-                <div className="utilities-container">
-                    <SidebarButton icon="export" />
-                    <SidebarButton icon="files" />
-                    <div style={{ position: 'relative' }}>
-                        <div ref={settingsButtonRef}>
-                            <SidebarButton
-                                icon="settings"
-                                onClick={toggleSettingsPanel}
-                            />
-                        </div>
-                        <SidePanel
-                            isOpen={isSettingsOpen}
-                            panelRef={settingsPanelRef}
-                        >
-                            {isSettingsOpen && <Settings
-                                isLiveRendering={isLiveRendering}
-                                onLiveRenderingToggle={onLiveRenderingToggle}
-                                isSyntaxHighlighting={isSyntaxHighlighting}
-                                onSyntaxHighlightingToggle={onSyntaxHighlightingToggle}
-                            />}
-                        </SidePanel>
-                    </div>
-                </div>
+
+        <div className="sidebar" ref={sidebarRef}>
+            <div className="tools-container">
+                <SidebarItem
+                    name="help"
+                    icon="help"
+                    activePanel={activePanel}
+                    onToggle={handlePanelToggle}
+                    sidebarRef={sidebarRef}
+                >
+                    {placeholderContent}
+                </SidebarItem>
+
+                <SidebarItem
+                    name="symbols"
+                    icon="symbols"
+                    activePanel={activePanel}
+                    onToggle={handlePanelToggle}
+                    sidebarRef={sidebarRef}
+                >
+                    {placeholderContent}
+                </SidebarItem>
+
+                <SidebarItem
+                    name="formatting"
+                    icon="formatting"
+                    activePanel={activePanel}
+                    onToggle={handlePanelToggle}
+                    sidebarRef={sidebarRef}
+                >
+                    {placeholderContent}
+                </SidebarItem>
+
+                <SidebarItem
+                    name="cheatsheet"
+                    icon="cheatsheet"
+                    activePanel={activePanel}
+                    onToggle={handlePanelToggle}
+                    sidebarRef={sidebarRef}
+                >
+                    {placeholderContent}
+                </SidebarItem>
             </div>
-        </>
-    )
+
+            {!isLiveRendering && (
+                <SidebarButton icon="compile" onClick={onCompileClick} />
+            )}
+
+            <div className="utilities-container">
+                <SidebarItem
+                    name="export"
+                    icon="export"
+                    activePanel={activePanel}
+                    onToggle={handlePanelToggle}
+                    sidebarRef={sidebarRef}
+                >
+                    {placeholderContent}
+                </SidebarItem>
+
+                <SidebarItem
+                    name="files"
+                    icon="files"
+                    activePanel={activePanel}
+                    onToggle={handlePanelToggle}
+                    sidebarRef={sidebarRef}
+                >
+                    {placeholderContent}
+                </SidebarItem>
+
+                <SidebarItem
+                    name="settings"
+                    icon="settings"
+                    activePanel={activePanel}
+                    onToggle={handlePanelToggle}
+                    sidebarRef={sidebarRef}
+                >
+                    <Settings
+                        isLiveRendering={isLiveRendering}
+                        onLiveRenderingToggle={onLiveRenderingToggle}
+                        isSyntaxHighlighting={isSyntaxHighlighting}
+                        onSyntaxHighlightingToggle={onSyntaxHighlightingToggle}
+                    />
+                </SidebarItem>
+            </div>
+        </div>
+    );
 }
 
 export default Sidebar;

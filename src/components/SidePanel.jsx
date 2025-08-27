@@ -1,10 +1,6 @@
-function SidePanel({ isOpen, panelRef, children }) { 
-    if (!isOpen) {
-        return null;
-    }
-
+function SidePanel({ panelRef, style, children }) {
     return (
-        <div className="side-panel" ref={panelRef}>
+        <div className="side-panel" ref={panelRef} style={style}>
             {children}
         </div>
     );
