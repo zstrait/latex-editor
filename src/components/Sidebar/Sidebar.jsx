@@ -20,8 +20,9 @@ function Sidebar({
         setActivePanel(prev => (prev === panelName ? null : panelName));
     };
 
-    const placeholderContent = (
+    const placeholderContent = (title) => (
         <div className="placeholder-panel panel-content">
+            <div className="panel-title">{title}</div>
             Coming Soon...
         </div>
     );
@@ -37,7 +38,7 @@ function Sidebar({
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
                 >
-                    {placeholderContent}
+                    {placeholderContent("Help")}
                 </SidebarItem>
 
                 <SidebarItem
@@ -47,7 +48,7 @@ function Sidebar({
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
                 >
-                    {placeholderContent}
+                    {placeholderContent("Symbols")}
                 </SidebarItem>
 
                 <SidebarItem
@@ -57,7 +58,7 @@ function Sidebar({
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
                 >
-                    {placeholderContent}
+                    {placeholderContent("Formatting")}
                 </SidebarItem>
 
                 <SidebarItem
@@ -67,7 +68,7 @@ function Sidebar({
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
                 >
-                    {placeholderContent}
+                    {placeholderContent("Cheatsheet")}
                 </SidebarItem>
             </div>
 
@@ -83,7 +84,7 @@ function Sidebar({
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
                 >
-                    {placeholderContent}
+                    {placeholderContent("Export")}
                 </SidebarItem>
 
                 <SidebarItem
@@ -93,7 +94,7 @@ function Sidebar({
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
                 >
-                    {placeholderContent}
+                    {placeholderContent("Files")}
                 </SidebarItem>
 
                 <SidebarItem

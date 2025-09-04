@@ -272,12 +272,15 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
     align-items: center;
     font-size: 20px;
     font-weight: bold;
     /* padding-top:64px; */
     padding: 0px 0px 0px 0px;
+    gap: 72px;
+    padding-top:12px;
 }
 
 
