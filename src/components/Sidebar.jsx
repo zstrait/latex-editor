@@ -8,7 +8,9 @@ function Sidebar({
     isLiveRendering,
     onLiveRenderingToggle,
     isSyntaxHighlighting,
-    onSyntaxHighlightingToggle
+    onSyntaxHighlightingToggle,
+    isAutoNewline,
+    onAutoNewlineToggle
 }) {
 
     const [activePanel, setActivePanel] = useState(null);
@@ -106,6 +108,8 @@ function Sidebar({
                         onLiveRenderingToggle={onLiveRenderingToggle}
                         isSyntaxHighlighting={isSyntaxHighlighting}
                         onSyntaxHighlightingToggle={onSyntaxHighlightingToggle}
+                        isAutoNewline={isAutoNewline}
+                        onAutoNewlineToggle={onAutoNewlineToggle}
                     />
                 </SidebarItem>
             </div>

@@ -1,13 +1,35 @@
+import { useRef } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { StreamLanguage } from '@codemirror/language';
 import { stex } from '@codemirror/legacy-modes/mode/stex';
-import { defaultKeymap } from '@codemirror/commands';
-import { keymap } from '@codemirror/view';
+import { history } from '@codemirror/commands';
+import { lineNumbers, highlightActiveLine } from '@codemirror/view';
 import { darkTheme } from '../themes/DarkTheme.js';
 
-function LatexEditor({ editorText, onChange, isSyntaxHighlighting }) {
+function LatexEditor({ editorText, onChange, isSyntaxHighlighting, isAutoNewline }) {
+    const editorRef = useRef(null);
+
+    const handleKeyDown = (event) => {
+        if (isAutoNewline && event.key === 'Enter') {
+            event.preventDefault();
+            const view = editorRef.current?.view;
+
+            if (view) {
+                const currentPos = view.state.selection.main.head;
+                const textToInsert = ' \\\\\n';
+
+                view.dispatch({
+                    changes: { from: currentPos, insert: textToInsert },
+                    selection: { anchor: currentPos + textToInsert.length }
+                });
+            }
+        }
+    };
+
     const extensions = [
-        keymap.of(defaultKeymap),
+        lineNumbers(),
+        highlightActiveLine(),
+        history(),
     ];
 
     if (isSyntaxHighlighting) {
@@ -15,29 +37,18 @@ function LatexEditor({ editorText, onChange, isSyntaxHighlighting }) {
     }
 
     return (
-        <>
-            <div className="latex-editor content-window">
-                <CodeMirror
-                    value={editorText}
-                    height="100%"
-                    style={{ height: '100%', border: 'none' }}
-                    onChange={onChange}
-                    theme={darkTheme}
-                    extensions={extensions}
-                    basicSetup={{
-                        lineNumbers: true,
-                        highlightActiveLine: true,
-                        foldGutter: false,
-                        dropCursor: true,
-                        allowMultipleSelections: true,
-                        indentOnInput: true,
-                        history: true,
-                        drawSelection: true
-                    }}
-                />
-            </div>
-        </>
-    )
+        <div onKeyDownCapture={handleKeyDown} className="latex-editor content-window">
+            <CodeMirror
+                ref={editorRef}
+                value={editorText}
+                height="100%"
+                style={{ height: '100%', border: 'none' }}
+                onChange={onChange}
+                theme={darkTheme}
+                extensions={extensions}
+            />
+        </div>
+    );
 }
 
 export default LatexEditor;

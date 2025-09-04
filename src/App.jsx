@@ -16,6 +16,7 @@ function App() {
     const [textToRender, setTextToRender] = useState(processLatexForRender(initialEditorText));
     const [isLiveRendering, setIsLiveRendering] = useState(true);
     const [isSyntaxHighlighting, setIsSyntaxHighlighting] = useState(true);
+    const [isAutoNewline, setIsAutoNewline] = useState(false);
 
     useEffect(() => {
         if (isLiveRendering) {
@@ -45,6 +46,10 @@ function App() {
         setIsSyntaxHighlighting(checked);
     };
 
+    const handleAutoNewlineToggle = (checked) => {
+        setIsAutoNewline(checked);
+    };
+
     return (
         <>
             <Header></Header>
@@ -55,12 +60,15 @@ function App() {
                     onLiveRenderingToggle={handleLiveRenderingToggle}
                     isSyntaxHighlighting={isSyntaxHighlighting}
                     onSyntaxHighlightingToggle={handleSyntaxHighlightingToggle}
+                    isAutoNewline={isAutoNewline}
+                    onAutoNewlineToggle={handleAutoNewlineToggle}
                 />
                 <ContentView
                     editorText={editorText}
                     onChange={handleTextChange}
                     isSyntaxHighlighting={isSyntaxHighlighting}
                     textToRender={textToRender}
+                    isAutoNewline={isAutoNewline}
                 />
             </div>
         </>

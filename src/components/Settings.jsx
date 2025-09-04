@@ -4,7 +4,9 @@ function Settings({
     isLiveRendering,
     onLiveRenderingToggle,
     isSyntaxHighlighting,
-    onSyntaxHighlightingToggle
+    onSyntaxHighlightingToggle,
+    isAutoNewline,
+    onAutoNewlineToggle
 }) {
     return (
         <>
@@ -25,8 +27,8 @@ function Settings({
                     <SettingItem
                         name={'Automatic \n Line Breaks'}
                         description={'Automatically insert new line breaks (\\\\) when Enter is pressed.'}
-                    // checked={}
-                    // onChange={}
+                        checked={isAutoNewline}
+                        onChange={onAutoNewlineToggle}
                     />
                 </div>
             </div>
