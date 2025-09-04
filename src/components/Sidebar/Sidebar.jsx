@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
-import SidebarButton from './SidebarButton.jsx'
-import Settings from './Settings.jsx';
+import SidebarButton from './SidebarButton.jsx';
+import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
 import SidebarItem from './SidebarItem.jsx';
 
 function Sidebar({
@@ -103,7 +103,7 @@ function Sidebar({
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
                 >
-                    <Settings
+                    <SettingsPanel
                         isLiveRendering={isLiveRendering}
                         onLiveRenderingToggle={onLiveRenderingToggle}
                         isSyntaxHighlighting={isSyntaxHighlighting}

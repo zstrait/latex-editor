@@ -1,7 +1,7 @@
 import { useState, useRef, useLayoutEffect } from 'react';
 import SidebarButton from './SidebarButton.jsx';
-import SidePanel from './SidePanel.jsx';
-import useClickOutside from './useClickOutside.js';
+import SidePanel from './SidePanels/SidePanel.jsx';
+import useClickOutside from '../../hooks/useClickOutside.js';
 
 function SidebarItem({ name, icon, activePanel, onToggle, children }) {
     const isOpen = activePanel === name;

@@ -4,7 +4,7 @@ import { StreamLanguage } from '@codemirror/language';
 import { stex } from '@codemirror/legacy-modes/mode/stex';
 import { history } from '@codemirror/commands';
 import { lineNumbers, highlightActiveLine, EditorView } from '@codemirror/view';
-import { darkTheme } from '../themes/DarkTheme.js';
+import { darkTheme } from '../../themes/DarkTheme.js';
 
 function LatexEditor({ editorText, onChange, isSyntaxHighlighting, isAutoNewline }) {
     const editorRef = useRef(null);
