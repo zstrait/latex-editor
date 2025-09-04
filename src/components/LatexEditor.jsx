@@ -3,7 +3,7 @@ import CodeMirror from '@uiw/react-codemirror';
 import { StreamLanguage } from '@codemirror/language';
 import { stex } from '@codemirror/legacy-modes/mode/stex';
 import { history } from '@codemirror/commands';
-import { lineNumbers, highlightActiveLine } from '@codemirror/view';
+import { lineNumbers, highlightActiveLine, EditorView } from '@codemirror/view';
 import { darkTheme } from '../themes/DarkTheme.js';
 
 function LatexEditor({ editorText, onChange, isSyntaxHighlighting, isAutoNewline }) {
@@ -27,6 +27,7 @@ function LatexEditor({ editorText, onChange, isSyntaxHighlighting, isAutoNewline
     };
 
     const extensions = [
+        EditorView.lineWrapping,
         lineNumbers(),
         highlightActiveLine(),
         history(),
