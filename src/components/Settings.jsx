@@ -20,15 +20,15 @@ function Settings({
                         onChange={onLiveRenderingToggle}
                     />
                     <SettingItem
-                        name={'Syntax \n Highlighting'}
-                        checked={isSyntaxHighlighting}
-                        onChange={onSyntaxHighlightingToggle}
-                    />
-                    <SettingItem
                         name={'Automatic \n Line Breaks'}
                         description={'Automatically insert new line breaks (\\\\) when Enter is pressed.'}
                         checked={isAutoNewline}
                         onChange={onAutoNewlineToggle}
+                    />
+                    <SettingItem
+                        name={'Syntax \n Highlighting'}
+                        checked={isSyntaxHighlighting}
+                        onChange={onSyntaxHighlightingToggle}
                     />
                 </div>
             </div>
