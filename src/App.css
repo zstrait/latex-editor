@@ -17,7 +17,7 @@ body {
     height: 100vh;
 }
 
-/* HEADER */
+/* ------------- HEADER ------------- */
 .header {
     background-color: #252526;
     color: #ABB2BF;
@@ -81,7 +81,7 @@ body {
 }
 
 
-/* SIDEBAR */
+/* ------------- SIDEBAR ------------- */
 .sidebar {
     background-color: #252526;
     color: #ABB2BF;
@@ -179,7 +179,7 @@ body {
 }
 
 
-/* SIDE PANELS */
+/* ------------- SIDE PANELS ------------- */
 
 /* Generic Panel Template */
 .side-panel {
@@ -197,6 +197,8 @@ body {
     /* display: flex;
     justify-content: center;
     align-items: center; */
+
+    background-size: contain;
 }
 
 .side-panel::before {
@@ -226,11 +228,21 @@ body {
     font-style: italic; */
 }
 
+.placeholder-panel {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    /* padding-top:64px; */
+    padding: 12px 0px 0px 0px;
+    gap: 72px;
+}
+
 /* Settings Panel */
-/* .side-panel.settings-panel {
-    height: 300px;
-    width: 300px;
-} */
 
 .settings-panel {
     display: flex;
@@ -240,11 +252,12 @@ body {
     gap: 12px;
 }
 
-.setting {
+.setting-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 16px;
+    flex-grow: 1;
 }
 
 .setting-container {
@@ -268,23 +281,81 @@ body {
 }
 
 
-.placeholder-panel {
-    height: 100%;
-    width: 100%;
+/* Export Panel */
+
+.export-panel-container {
+    width: 270px;
+    height: 210px;
+}
+
+.export-panel {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    padding: 8px 16px; 
+    gap: 18px;
+}
+
+.export-title {
+    text-align: center; 
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-style: double;
+    text-decoration-color: #78797fbc;
+}
+
+.export-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.export-item {
+    display: flex;
+    justify-content: right;
     align-items: center;
-    font-size: 20px;
+    gap:20px;
+}
+
+.export-option {
+    font-size: 18px;
     font-weight: bold;
-    /* padding-top:64px; */
-    padding: 0px 0px 0px 0px;
-    gap: 72px;
-    padding-top:12px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-style: dotted;
+    text-underline-offset: 4px;
+    text-shadow: 4px 4px 16px #1e1e1e;
+}
+
+.export-button {
+    font: bold 16px 'SF Mono', 'Courier New', 'Lucida Console', monospace;
+    padding: 7px 16px 7px 14px;
+    color: white;
+    text-align: center;
+    background-color: #5094d4b6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+}
+
+.export-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background-color: #5094d4ab;
+}
+
+.export-button:active {
+    transform: scale(1.00) translateY(2px);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #3276b1c7;
 }
 
 
-/* MAIN CONTENT */
+/* ------------- MAIN CONTENT ------------- */
 .main {
     display: flex;
     flex-grow: 1;

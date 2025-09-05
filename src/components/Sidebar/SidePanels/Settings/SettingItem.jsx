@@ -3,7 +3,7 @@ import Switch from "react-switch";
 function SettingItem({ name, description, checked, onChange }) {
     return (
         <>
-            <div className="setting">
+            <div className="setting-item">
                 <div className="setting-container">
                     <div className="setting-name">{name}</div>
                     <div className="setting-desc">{description}</div>

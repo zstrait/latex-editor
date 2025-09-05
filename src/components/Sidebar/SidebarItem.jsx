@@ -3,7 +3,7 @@ import SidebarButton from './SidebarButton.jsx';
 import SidePanel from './SidePanels/SidePanel.jsx';
 import useClickOutside from '../../hooks/useClickOutside.js';
 
-function SidebarItem({ name, icon, activePanel, onToggle, children }) {
+function SidebarItem({ name, icon, activePanel, onToggle, children, panelClassName }) {
     const isOpen = activePanel === name;
     const [panelStyle, setPanelStyle] = useState({ opacity: 0, pointerEvents: 'none' });
 
@@ -50,7 +50,7 @@ function SidebarItem({ name, icon, activePanel, onToggle, children }) {
         <div style={{ position: 'relative' }} ref={containerRef}>
             <SidebarButton icon={icon} onClick={() => onToggle(name)} />
             {isOpen && (
-                <SidePanel panelRef={panelRef} style={panelStyle}>
+                <SidePanel panelRef={panelRef} style={panelStyle} className={panelClassName}>
                     {children}
                 </SidePanel>
             )}

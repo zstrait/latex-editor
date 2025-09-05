@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import SidebarButton from './SidebarButton.jsx';
 import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
 import SidebarItem from './SidebarItem.jsx';
+import ExportPanel from './SidePanels/Export/ExportPanel.jsx';
 
 function Sidebar({
     onCompileClick,
@@ -83,8 +84,9 @@ function Sidebar({
                     activePanel={activePanel}
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
+                    panelClassName="export-panel-container"
                 >
-                    {placeholderContent("Export")}
+                    <ExportPanel />
                 </SidebarItem>
 
                 <SidebarItem

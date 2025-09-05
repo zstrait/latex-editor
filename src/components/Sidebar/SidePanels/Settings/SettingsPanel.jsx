@@ -12,7 +12,7 @@ function Settings({
         <>
             <div className="settings-panel panel-content">
                 <div className="panel-title">Settings</div>
-                <div className="settings">
+                <div className="settings-content">
                     <SettingItem
                         name={'Live Rendering'}
                         description={'Turning off will add\na manual compile button.'}
