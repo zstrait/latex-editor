@@ -291,8 +291,9 @@ body {
 .export-panel {
     display: flex;
     flex-direction: column;
-    padding: 8px 16px; 
+    padding: 8px 14px; 
     gap: 18px;
+    margin-right: 5px;
 }
 
 .export-title {
