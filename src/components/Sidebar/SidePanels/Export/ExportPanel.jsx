@@ -1,6 +1,6 @@
 import ExportItem from "./ExportItem";
 
-function ExportPanel() {
+function ExportPanel({ onExportTxt }) {
     return (
         <>
             <div className="export-panel panel-content">
@@ -17,6 +17,7 @@ function ExportPanel() {
                     <ExportItem
                         option="Raw Plaintext"
                         type=".txt"
+                        onClick={onExportTxt}
                     />
 
                 </div>

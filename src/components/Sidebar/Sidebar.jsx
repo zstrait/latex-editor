@@ -11,7 +11,8 @@ function Sidebar({
     isSyntaxHighlighting,
     onSyntaxHighlightingToggle,
     isAutoNewline,
-    onAutoNewlineToggle
+    onAutoNewlineToggle,
+    onExportTxt
 }) {
 
     const [activePanel, setActivePanel] = useState(null);
@@ -27,7 +28,7 @@ function Sidebar({
             Coming Soon...
         </div>
     );
-    
+
     return (
 
         <div className="sidebar" ref={sidebarRef}>
@@ -86,7 +87,7 @@ function Sidebar({
                     sidebarRef={sidebarRef}
                     panelClassName="export-panel-container"
                 >
-                    <ExportPanel />
+                    <ExportPanel onExportTxt={onExportTxt} />
                 </SidebarItem>
 
                 <SidebarItem

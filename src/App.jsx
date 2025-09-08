@@ -50,6 +50,21 @@ function App() {
         setIsAutoNewline(checked);
     };
 
+    const handleExportTxt = () => {
+        const blob = new Blob([editorText], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'LaTeX.txt';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        URL.revokeObjectURL(url);
+    }
+
     return (
         <>
             <Header></Header>
@@ -62,6 +77,7 @@ function App() {
                     onSyntaxHighlightingToggle={handleSyntaxHighlightingToggle}
                     isAutoNewline={isAutoNewline}
                     onAutoNewlineToggle={handleAutoNewlineToggle}
+                    onExportTxt={handleExportTxt}
                 />
                 <ContentView
                     editorText={editorText}
