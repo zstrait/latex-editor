@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react';
 import SidebarButton from './SidebarButton.jsx';
-import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
 import SidebarItem from './SidebarItem.jsx';
+import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
 import ExportPanel from './SidePanels/Export/ExportPanel.jsx';
+import SymbolsPanel from './SidePanels/Symbols/SymbolsPanel.jsx'
 
 function Sidebar({
     onCompileClick,
@@ -49,8 +50,9 @@ function Sidebar({
                     activePanel={activePanel}
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
+                    panelClassName="symbols-panel-container"
                 >
-                    {placeholderContent("Symbols")}
+                    <SymbolsPanel />
                 </SidebarItem>
 
                 <SidebarItem
@@ -117,6 +119,9 @@ function Sidebar({
                     />
                 </SidebarItem>
             </div>
+
+
+            {/* <div className="sidebar-toggle">(x)</div> */}
         </div>
     );
 }

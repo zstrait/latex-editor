@@ -22,7 +22,6 @@ function ExportPanel({ onExportTxt }) {
 
                 </div>
             </div>
-
         </>
     )
 }

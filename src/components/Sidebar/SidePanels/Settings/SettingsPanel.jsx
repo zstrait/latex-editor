@@ -1,6 +1,6 @@
 import SettingItem from "./SettingItem";
 
-function Settings({
+function SettingsPanel({
     isLiveRendering,
     onLiveRenderingToggle,
     isSyntaxHighlighting,
@@ -36,4 +36,4 @@ function Settings({
     );
 }
 
-export default Settings;
+export default SettingsPanel;
