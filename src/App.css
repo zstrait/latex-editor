@@ -495,117 +495,117 @@ body {
 /* Symbol Button Icons */
 /* Operators */
 .symbols-button.plusminus {
-    background-image: url(../public/images/symbols/plusminus.svg)
+    background-image: url(/images/symbols/plusminus.svg)
 }
 
 .symbols-button.division {
-    background-image: url(../public/images/symbols/division.svg)
+    background-image: url(/images/symbols/division.svg)
 }
 
 .symbols-button.geq {
-    background-image: url(../public/images/symbols/geq.svg)
+    background-image: url(/images/symbols/geq.svg)
 }
 
 .symbols-button.leq {
-    background-image: url(../public/images/symbols/leq.svg)
+    background-image: url(/images/symbols/leq.svg)
 }
 
 .symbols-button.neq {
-    background-image: url(../public/images/symbols/neq.svg)
+    background-image: url(/images/symbols/neq.svg)
 }
 
 .symbols-button.land {
-    background-image: url(../public/images/symbols/land.svg)
+    background-image: url(/images/symbols/land.svg)
 }
 
 .symbols-button.lor {
-    background-image: url(../public/images/symbols/lor.svg)
+    background-image: url(/images/symbols/lor.svg)
 }
 
 .symbols-button.rarrow {
-    background-image: url(../public/images/symbols/rarrow.svg)
+    background-image: url(/images/symbols/rarrow.svg)
 }
 
 .symbols-button.forall {
-    background-image: url(../public/images/symbols/forall.svg)
+    background-image: url(/images/symbols/forall.svg)
 }
 
 .symbols-button.exists {
-    background-image: url(../public/images/symbols/exists.svg)
+    background-image: url(/images/symbols/exists.svg)
 }
 
 .symbols-button.infin {
-    background-image: url(../public/images/symbols/infin.svg)
+    background-image: url(/images/symbols/infin.svg)
 }
 
 .symbols-button.triangle {
-    background-image: url(../public/images/symbols/triangle.svg)
+    background-image: url(/images/symbols/triangle.svg)
 }
 
 /* Greek */
 .symbols-button.alpha {
-    background-image: url(../public/images/symbols/alpha.svg)
+    background-image: url(/images/symbols/alpha.svg)
 }
 
 .symbols-button.beta {
-    background-image: url(../public/images/symbols/beta.svg)
+    background-image: url(/images/symbols/beta.svg)
 }
 
 .symbols-button.chi {
-    background-image: url(../public/images/symbols/chi.svg)
+    background-image: url(/images/symbols/chi.svg)
 }
 
 .symbols-button.delta {
-    background-image: url(../public/images/symbols/delta.svg)
+    background-image: url(/images/symbols/delta.svg)
 }
 
 .symbols-button.epsilon {
-    background-image: url(../public/images/symbols/epsilon.svg)
+    background-image: url(/images/symbols/epsilon.svg)
 }
 
 .symbols-button.deltaUp {
-    background-image: url(../public/images/symbols/deltaUp.svg)
+    background-image: url(/images/symbols/deltaUp.svg)
 }
 
 .symbols-button.gammaUp {
-    background-image: url(../public/images/symbols/gammaUp.svg)
+    background-image: url(/images/symbols/gammaUp.svg)
 }
 
 .symbols-button.lambdaUp {
-    background-image: url(../public/images/symbols/lambdaUp.svg)
+    background-image: url(/images/symbols/lambdaUp.svg)
 }
 
 .symbols-button.omegaUp {
-    background-image: url(../public/images/symbols/omegaUp.svg)
+    background-image: url(/images/symbols/omegaUp.svg)
 }
 
 /* Structures */
 .symbols-button.summation {
-    background-image: url(../public/images/symbols/summation.svg)
+    background-image: url(/images/symbols/summation.svg)
 }
 
 .symbols-button.product {
-    background-image: url(../public/images/symbols/product.svg)
+    background-image: url(/images/symbols/product.svg)
 }
 
 .symbols-button.integral {
-    background-image: url(../public/images/symbols/integral.svg)
+    background-image: url(/images/symbols/integral.svg)
 }
 
 .symbols-button.integral-bounds {
-    background-image: url(../public/images/symbols/integral-bounds.svg)
+    background-image: url(/images/symbols/integral-bounds.svg)
 }
 
 .symbols-button.limit {
-    background-image: url(../public/images/symbols/limit.svg)
+    background-image: url(/images/symbols/limit.svg)
 }
 
 .symbols-button.sqrt {
-    background-image: url(../public/images/symbols/sqrt.svg)
+    background-image: url(/images/symbols/sqrt.svg)
 }
 
 .symbols-button.frac {
-    background-image: url(../public/images/symbols/frac.svg)
+    background-image: url(/images/symbols/frac.svg)
 }
 
 /* ------------- MAIN CONTENT ------------- */
