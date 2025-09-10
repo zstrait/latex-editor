@@ -1,12 +1,27 @@
-function SymbolsMenu() {
+function SymbolsMenu({ onCategoryClick , activeCategory}) {
     return (
         <>
             <div className="symbols-menu">
-                <button className="symbols-menu-category operators">Operators</button>
+                <button
+                    className={`symbols-category operators ${activeCategory === 'Operators' ? 'active' : ''}`}
+                    onClick={() => onCategoryClick('Operators')}
+                >
+                    Operators
+                </button>
                 <div className="category-separator"></div>
-                <button className="symbols-menu-category greek">Greek</button>
+                <button
+                    className={`symbols-category greek ${activeCategory === 'Greek' ? 'active' : ''}`}
+                    onClick={() => onCategoryClick('Greek')}
+                >
+                    Greek
+                </button>
                 <div className="category-separator"></div>
-                <button className="symbols-menu-category structures">Structures</button>
+                <button
+                    className={`symbols-category structures ${activeCategory === 'Structures' ? 'active' : ''}`}
+                    onClick={() => onCategoryClick('Structures')}
+                >
+                    Structures
+                </button>
             </div>
         </>
     )

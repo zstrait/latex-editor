@@ -100,7 +100,6 @@ body {
     width: 50px;
 } */
 
-
 .tools-container,
 .utilities-container {
     display: flex;
@@ -131,13 +130,15 @@ body {
 }
 
 .page-button:hover,
-.sidebar-button:hover {
+.sidebar-button:hover,
+.symbols-button:hover {
     transform: scale(1.03);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
 }
 
 .page-button:active,
-.sidebar-button:active {
+.sidebar-button:active,
+.symbols-button:active {
     transform: scale(1.00) translateY(2px);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
     background-color: #282828;
@@ -168,7 +169,6 @@ body {
 .sidebar-button.compile {
     background-image: url(/images/compile.svg);
     background-size: 90% 90%;
-
 }
 
 /* Utilities Container */
@@ -197,17 +197,16 @@ body {
     position: absolute;
     z-index: 5;
     left: 100%;
-    /* bottom: -15%; */
     margin-left: 24px;
     background-color: #2D2D2D;
     border: 3px solid #252526;
     border-radius: 28px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    background-size: contain;
     /* display: flex;
     justify-content: center;
     align-items: center; */
-
-    background-size: contain;
+    /* bottom: -15%; */
 }
 
 .side-panel::before {
@@ -242,13 +241,13 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     font-size: 20px;
     font-weight: bold;
-    /* padding-top:64px; */
     padding: 12px 0px 0px 0px;
     gap: 72px;
+    /* padding-top:64px; */
+    /* justify-content: center; */
 }
 
 /* Settings Panel */
@@ -277,15 +276,15 @@ body {
 
 .setting-name {
     font-weight: 600;
-    /* text-align: center; */
     font-size: 16px;
     white-space: pre-line;
+    /* text-align: center; */
 }
 
 .setting-desc {
     font-size: 10px;
-    /* text-align: center; */
     color: #78797F;
+    /* text-align: center; */
     /* white-space: pre-line; */
 }
 
@@ -366,6 +365,7 @@ body {
 
 
 /* Symbols Panel */
+
 .symbols-panel-container {
     width: 450px;
     height: 270px;
@@ -398,7 +398,7 @@ body {
     color: #78797F;
 }
 
-.symbols-menu-container {
+.symbols-content-container {
     border: 2px solid #373737;
     height: 205px;
     width: 430px;
@@ -417,7 +417,7 @@ body {
     align-items: center;
 }
 
-.symbols-menu-category {
+.symbols-category {
     flex-grow: 1;
     background-color: #373737;
     border: none;
@@ -425,15 +425,21 @@ body {
     font-size: 14px;
     font-weight: bold;
     padding: 0 8px;
+    width: 100%;
+
 }
 
-.symbols-menu-category.operators {
+.symbols-category.operators {
     border-radius: 26px 0 0 0;
-
 }
 
-.symbols-menu-category.structures {
+.symbols-category.structures {
     border-radius: 0 0 0 26px;
+}
+
+.symbols-category.active {
+    background-color: #2D2D2D;
+    border-right: 2px dashed #373737;
 }
 
 .category-separator {
@@ -442,7 +448,165 @@ body {
     background-color: #abb2bf85;
 }
 
+.symbols-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 8px;
+    width: 100%;
+    padding: 8px 16px;
+    overflow: scroll;
+}
 
+.symbols-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* .symbols-subcatergory {
+    font-size: 8px;
+} */
+
+.symbols-buttons-container {
+    display: flex;
+    justify-content: space-apart;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.symbols-button {
+    height: 40px;
+    width: 40px;
+    background-size: 85% 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    border: 2px solid #373737;
+    background-color: #2D2D2D;
+    border-radius: 6px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+
+
+
+/* Symbol Button Icons */
+/* Operators */
+.symbols-button.plusminus {
+    background-image: url(../public/images/symbols/plusminus.svg)
+}
+
+.symbols-button.division {
+    background-image: url(../public/images/symbols/division.svg)
+}
+
+.symbols-button.geq {
+    background-image: url(../public/images/symbols/geq.svg)
+}
+
+.symbols-button.leq {
+    background-image: url(../public/images/symbols/leq.svg)
+}
+
+.symbols-button.neq {
+    background-image: url(../public/images/symbols/neq.svg)
+}
+
+.symbols-button.land {
+    background-image: url(../public/images/symbols/land.svg)
+}
+
+.symbols-button.lor {
+    background-image: url(../public/images/symbols/lor.svg)
+}
+
+.symbols-button.rarrow {
+    background-image: url(../public/images/symbols/rarrow.svg)
+}
+
+.symbols-button.forall {
+    background-image: url(../public/images/symbols/forall.svg)
+}
+
+.symbols-button.exists {
+    background-image: url(../public/images/symbols/exists.svg)
+}
+
+.symbols-button.infin {
+    background-image: url(../public/images/symbols/infin.svg)
+}
+
+.symbols-button.triangle {
+    background-image: url(../public/images/symbols/triangle.svg)
+}
+
+/* Greek */
+.symbols-button.alpha {
+    background-image: url(../public/images/symbols/alpha.svg)
+}
+
+.symbols-button.beta {
+    background-image: url(../public/images/symbols/beta.svg)
+}
+
+.symbols-button.chi {
+    background-image: url(../public/images/symbols/chi.svg)
+}
+
+.symbols-button.delta {
+    background-image: url(../public/images/symbols/delta.svg)
+}
+
+.symbols-button.epsilon {
+    background-image: url(../public/images/symbols/epsilon.svg)
+}
+
+.symbols-button.deltaUp {
+    background-image: url(../public/images/symbols/deltaUp.svg)
+}
+
+.symbols-button.gammaUp {
+    background-image: url(../public/images/symbols/gammaUp.svg)
+}
+
+.symbols-button.lambdaUp {
+    background-image: url(../public/images/symbols/lambdaUp.svg)
+}
+
+.symbols-button.omegaUp {
+    background-image: url(../public/images/symbols/omegaUp.svg)
+}
+
+/* Structures */
+.symbols-button.summation {
+    background-image: url(../public/images/symbols/summation.svg)
+}
+
+.symbols-button.product {
+    background-image: url(../public/images/symbols/product.svg)
+}
+
+.symbols-button.integral {
+    background-image: url(../public/images/symbols/integral.svg)
+}
+
+.symbols-button.integral-bounds {
+    background-image: url(../public/images/symbols/integral-bounds.svg)
+}
+
+.symbols-button.limit {
+    background-image: url(../public/images/symbols/limit.svg)
+}
+
+.symbols-button.sqrt {
+    background-image: url(../public/images/symbols/sqrt.svg)
+}
+
+.symbols-button.frac {
+    background-image: url(../public/images/symbols/frac.svg)
+}
 
 /* ------------- MAIN CONTENT ------------- */
 .main {
@@ -497,7 +661,6 @@ body {
 ::selection {
     background-color: rgba(82, 139, 255, 0.3) !important;
 }
-
 
 
 /* Latex Render Preview Window */

@@ -34,22 +34,15 @@ function App() {
         setEditorText(newText);
     };
 
+    // const handleTextInsert(textToInsert) = () => {
+        
+    // }
+
     const handleCompileClick = () => {
         setTextToRender(processLatexForRender(editorText));
     };
 
-    const handleLiveRenderingToggle = (checked) => {
-        setIsLiveRendering(checked);
-    };
-
-    const handleSyntaxHighlightingToggle = (checked) => {
-        setIsSyntaxHighlighting(checked);
-    };
-
-    const handleAutoNewlineToggle = (checked) => {
-        setIsAutoNewline(checked);
-    };
-
+    // Export Panel Handlers
     const handleExportTxt = () => {
         const blob = new Blob([editorText], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
@@ -61,9 +54,22 @@ function App() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        
+
         URL.revokeObjectURL(url);
     }
+
+    // Settings panel handlers
+    const handleLiveRenderingToggle = (checked) => {
+        setIsLiveRendering(checked);
+    };
+
+    const handleAutoNewlineToggle = (checked) => {
+        setIsAutoNewline(checked);
+    };
+
+        const handleSyntaxHighlightingToggle = (checked) => {
+        setIsSyntaxHighlighting(checked);
+    };
 
     return (
         <>

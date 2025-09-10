@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import Switch from "react-switch";
 import SymbolsMenu from "./SymbolsMenu";
-import SymbolsItem from "./SymbolsItem";
-
+import SymbolsContent from './SymbolsContent';
+import { symbolsData } from '../../../../data/symbolsData';
 
 function SymbolsPanel({ checked, onChange }) {
+    const [activeCategory, setActiveCategory] = useState('Operators');
+
+    const handleCategoryClick = (category) => {
+        setActiveCategory(category);
+    };
+
+    let subcategories = symbolsData[activeCategory];
+
     return (
         <>
             <div className="symbols-panel panel-content">
@@ -25,10 +34,16 @@ function SymbolsPanel({ checked, onChange }) {
                     </div>
                 </div>
 
-                <div className="symbols-menu-container">
-                    <SymbolsMenu />
+                <div></div>
+                <div className="symbols-content-container">
+                    <SymbolsMenu
+                        onCategoryClick={handleCategoryClick}
+                        activeCategory={activeCategory}
+                    />
+                    <SymbolsContent
+                        subcategories={subcategories}
+                    />
                 </div>
-
             </div>
         </>
     )
