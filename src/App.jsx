@@ -34,10 +34,6 @@ function App() {
         setEditorText(newText);
     };
 
-    // const handleTextInsert(textToInsert) = () => {
-        
-    // }
-
     const handleCompileClick = () => {
         setTextToRender(processLatexForRender(editorText));
     };
@@ -67,7 +63,7 @@ function App() {
         setIsAutoNewline(checked);
     };
 
-        const handleSyntaxHighlightingToggle = (checked) => {
+    const handleSyntaxHighlightingToggle = (checked) => {
         setIsSyntaxHighlighting(checked);
     };
 

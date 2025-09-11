@@ -17,7 +17,7 @@ function SymbolsPanel({ checked, onChange }) {
         <>
             <div className="symbols-panel panel-content">
                 <div className="symbols-header">
-                    <div className="panel-title">Symbols & Operators</div>
+                    <div className="panel-title">Symbols</div>
                     <div className="symbols-preview-container">
                         <span className="preview-toggle-label">Previews</span>
                         <Switch
@@ -28,13 +28,12 @@ function SymbolsPanel({ checked, onChange }) {
                             checkedIcon={false}
                             onChange={onChange}
                             height={20}
-                            width={52}
+                            width={50}
                             handleDiameter={18}
                         />
                     </div>
                 </div>
 
-                <div></div>
                 <div className="symbols-content-container">
                     <SymbolsMenu
                         onCategoryClick={handleCategoryClick}
