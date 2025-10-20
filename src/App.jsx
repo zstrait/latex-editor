@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from './components/Header.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import ContentView from './components/MainContent/ContentView.jsx';
@@ -18,6 +18,8 @@ function App() {
     const [isSyntaxHighlighting, setIsSyntaxHighlighting] = useState(true);
     const [isAutoNewline, setIsAutoNewline] = useState(false);
 
+    const editorRef = useRef(null);
+
     useEffect(() => {
         if (isLiveRendering) {
             const timerId = setTimeout(() => {
@@ -32,6 +34,12 @@ function App() {
 
     const handleTextChange = (newText) => {
         setEditorText(newText);
+    };
+
+    const handleInsertText = (textToInsert) => {
+        if (editorRef.current) {
+            editorRef.current.insertText(textToInsert);
+        }
     };
 
     const handleCompileClick = () => {
@@ -80,8 +88,10 @@ function App() {
                     isAutoNewline={isAutoNewline}
                     onAutoNewlineToggle={handleAutoNewlineToggle}
                     onExportTxt={handleExportTxt}
+                    onInsertText={handleInsertText}
                 />
                 <ContentView
+                    ref={editorRef}
                     editorText={editorText}
                     onChange={handleTextChange}
                     isSyntaxHighlighting={isSyntaxHighlighting}

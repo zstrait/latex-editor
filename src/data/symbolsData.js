@@ -92,15 +92,15 @@ export const symbolsData = {
             subtitle: 'Integrals',
             symbols: [
                 { icon: 'integral', code: '\\int' },
-                { icon: 'integral-bounds', code: '\\int_{}^{}' }
+                { icon: 'integral-bounds', code: '\\int_{a}^{b}' }
             ]
         },
         {
             subtitle: 'Other',
             symbols: [
                 { icon: 'limit', code: '\\lim_{x\\to\\infty}' },
-                { icon: 'sqrt', code: '\\sqrt{}' },
-                { icon: 'frac', code: '\\frac{}{}' }
+                { icon: 'sqrt', code: '\\sqrt{x}' },
+                { icon: 'frac', code: '\\frac{a}{b}' }
             ]
         }
     ]

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import katex from 'katex';
-import 'katex/dist/katex.min.css';
 
 function LatexRenderer({ textToRender }) {
     const outputDivRef = useRef(null);

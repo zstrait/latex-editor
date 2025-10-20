@@ -13,7 +13,8 @@ function Sidebar({
     onSyntaxHighlightingToggle,
     isAutoNewline,
     onAutoNewlineToggle,
-    onExportTxt
+    onExportTxt,
+    onInsertText
 }) {
 
     const [activePanel, setActivePanel] = useState(null);
@@ -52,7 +53,10 @@ function Sidebar({
                     sidebarRef={sidebarRef}
                     panelClassName="symbols-panel-container"
                 >
-                    <SymbolsPanel />
+                    <SymbolsPanel
+                        onInsertText={onInsertText}
+                        onClosePanel={() => handlePanelToggle(null)}
+                    />
                 </SidebarItem>
 
                 <SidebarItem

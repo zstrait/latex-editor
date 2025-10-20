@@ -1,11 +1,12 @@
+import { forwardRef } from 'react';
 import LatexEditor from './LatexEditor.jsx';
 import LatexRenderer from './LatexRenderer.jsx';
-import 'katex/dist/katex.min.css';
 
-function ContentView({ editorText, onChange, isSyntaxHighlighting, textToRender, isAutoNewline }) {
+const ContentView = forwardRef(({ editorText, onChange, isSyntaxHighlighting, textToRender, isAutoNewline }, ref) => {
     return (
         <>
             <LatexEditor
+                ref={ref}
                 editorText={editorText}
                 onChange={onChange}
                 isSyntaxHighlighting={isSyntaxHighlighting}
@@ -14,6 +15,6 @@ function ContentView({ editorText, onChange, isSyntaxHighlighting, textToRender,
             <LatexRenderer textToRender={textToRender} />
         </>
     )
-}
+});
 
 export default ContentView;

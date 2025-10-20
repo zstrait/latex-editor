@@ -1,4 +1,4 @@
-* {
+*:not(.latex-render *) {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -142,49 +142,6 @@ body {
     transform: scale(1.00) translateY(2px);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
     background-color: #282828;
-}
-
-/* Tools Container */
-.sidebar-button.help {
-    background-image: url(/images/question.svg);
-    background-size: 75% 75%;
-}
-
-.sidebar-button.symbols {
-    background-image: url(/images/sigma.svg);
-    background-size: 80% 80%;
-}
-
-.sidebar-button.formatting {
-    background-image: url(/images/formatting.svg);
-    background-size: 80% 80%;
-}
-
-.sidebar-button.cheatsheet {
-    background-image: url(/images/keyboard.svg);
-    background-size: 90% 90%;
-}
-
-
-.sidebar-button.compile {
-    background-image: url(/images/compile.svg);
-    background-size: 90% 90%;
-}
-
-/* Utilities Container */
-.sidebar-button.export {
-    background-image: url(/images/export.svg);
-    background-size: 85% 85%;
-}
-
-.sidebar-button.files {
-    background-image: url(/images/folder.svg);
-    background-size: 103%;
-}
-
-.sidebar-button.settings {
-    background-image: url(/images/settings.svg);
-    background-size: 85% 85%;
 }
 
 
@@ -483,7 +440,7 @@ body {
 .symbols-subcategory {
     font-size: 16px;
     font-weight: bold;
-    text-decoration: underline ;
+    text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
     text-decoration-color: #abb2bf7b;
@@ -496,7 +453,7 @@ body {
     align-items: center;
     gap: 18px;
     padding: 0px 4px;
-} 
+}
 
 .symbols-button {
     height: 40px;
@@ -513,7 +470,119 @@ body {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
 }
 
-/* Symbol Button Icons */
+
+/* ------------- MAIN CONTENT ------------- */
+.main {
+    display: flex;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+.content-view {
+    display: flex;
+    flex-grow: 1;
+}
+
+.content-window {
+    flex: 1;
+    /* overflow: hidden; */
+}
+
+/* Latex Editor Window */
+.latex-editor {
+    background-color: #1E1E1E;
+    color: #ABB2BF;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 8px;
+}
+
+.latex-editor.content-window {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-right: 2px solid #252526;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.cm-editor {
+    height: 100% !important;
+}
+
+.cm-editor.cm-focused {
+    outline: none;
+}
+
+.cm-gutter.cm-lineNumbers {
+    min-width: 29px;
+    margin-left: -4px;
+}
+
+/* selection highlight color */
+.cm-selectionBackground,
+::selection {
+    background-color: rgba(82, 139, 255, 0.3) !important;
+}
+
+/* Latex Render Preview Window */
+.latex-render {
+    /* background-color: #1E1E1E;
+    color: #ABB2BF; */
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-left: 2px solid #252526;
+    padding: 8px;
+}
+
+
+/* ------------- ICONS ------------- */
+
+/* ---- Sidebar Buttons ---- */
+/* Tools Container */
+.sidebar-button.help {
+    background-image: url(/images/question.svg);
+    background-size: 75% 75%;
+}
+
+.sidebar-button.symbols {
+    background-image: url(/images/sigma.svg);
+    background-size: 80% 80%;
+}
+
+.sidebar-button.formatting {
+    background-image: url(/images/formatting.svg);
+    background-size: 80% 80%;
+}
+
+.sidebar-button.cheatsheet {
+    background-image: url(/images/keyboard.svg);
+    background-size: 90% 90%;
+}
+
+.sidebar-button.compile {
+    background-image: url(/images/compile.svg);
+    background-size: 90% 90%;
+}
+
+/* Utilities Container */
+.sidebar-button.export {
+    background-image: url(/images/export.svg);
+    background-size: 85% 85%;
+}
+
+.sidebar-button.files {
+    background-image: url(/images/folder.svg);
+    background-size: 103%;
+}
+
+.sidebar-button.settings {
+    background-image: url(/images/settings.svg);
+    background-size: 85% 85%;
+}
+
+
+/* ---- Symbol Buttons ---- */
 /* Operators */
 .symbols-button.plusminus {
     background-image: url(/images/symbols/plusminus.svg)
@@ -627,69 +696,4 @@ body {
 
 .symbols-button.frac {
     background-image: url(/images/symbols/frac.svg)
-}
-
-/* ------------- MAIN CONTENT ------------- */
-.main {
-    display: flex;
-    flex-grow: 1;
-    min-height: 0;
-}
-
-.content-view {
-    display: flex;
-    flex-grow: 1;
-}
-
-.content-window {
-    flex: 1;
-    /* overflow: hidden; */
-}
-
-/* Latex Editor Window */
-.latex-editor {
-    background-color: #1E1E1E;
-    color: #ABB2BF;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 8px;
-}
-
-.latex-editor.content-window {
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    border-right: 2px solid #252526;
-    /* overflow: hidden; */
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
-}
-
-.cm-editor {
-    height: 100% !important;
-}
-
-.cm-editor.cm-focused {
-    outline: none;
-}
-
-.cm-gutter.cm-lineNumbers {
-    min-width: 29px;
-    margin-left: -4px;
-}
-
-/* selection highlight color */
-.cm-selectionBackground,
-::selection {
-    background-color: rgba(82, 139, 255, 0.3) !important;
-}
-
-
-/* Latex Render Preview Window */
-.latex-render {
-    /* background-color: #1E1E1E;
-    color: #ABB2BF; */
-    border-top-right-radius: 16px;
-    border-top-left-radius: 16px;
-    border-left: 2px solid #252526;
-    padding: 8px;
 }

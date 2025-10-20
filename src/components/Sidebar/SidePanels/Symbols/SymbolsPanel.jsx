@@ -4,7 +4,7 @@ import SymbolsMenu from "./SymbolsMenu";
 import SymbolsContent from './SymbolsContent';
 import { symbolsData } from '../../../../data/symbolsData';
 
-function SymbolsPanel({ checked, onChange }) {
+function SymbolsPanel({ checked, onChange, onInsertText, onClosePanel }) {
     const [activeCategory, setActiveCategory] = useState('Operators');
 
     const handleCategoryClick = (category) => {
@@ -41,6 +41,8 @@ function SymbolsPanel({ checked, onChange }) {
                     />
                     <SymbolsContent
                         subcategories={subcategories}
+                        onInsertText={onInsertText}
+                        onClosePanel={onClosePanel}
                     />
                 </div>
             </div>

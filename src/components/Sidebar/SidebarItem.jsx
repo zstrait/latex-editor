@@ -12,7 +12,6 @@ function SidebarItem({ name, icon, activePanel, onToggle, children, panelClassNa
 
     useLayoutEffect(() => {
         if (isOpen && containerRef.current && panelRef.current) {
-
             const buttonRect = containerRef.current.getBoundingClientRect();
             const panelRect = panelRef.current.getBoundingClientRect();
             const viewportHeight = window.innerHeight;

@@ -1,6 +1,6 @@
 import SymbolsButton from "./SymbolsButton";
 
-function SymbolsItem({ subcategory, symbols }) {
+function SymbolsItem({ subcategory, symbols, onInsertText, onClosePanel }) {
     return (
         <>
             <div className="symbols-item-container">
@@ -8,9 +8,11 @@ function SymbolsItem({ subcategory, symbols }) {
                 <div className="symbols-buttons-container">
                     {symbols.map((symbol) => (
                         <SymbolsButton
-                            icon={symbol.icon}
-                            // code={symbol.code}
                             key={symbol.code}
+                            icon={symbol.icon}
+                            code={symbol.code}
+                            onInsertText={onInsertText}
+                            onClosePanel={onClosePanel}
                         />
                     ))}
                 </div>
