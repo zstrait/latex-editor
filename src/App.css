@@ -268,6 +268,8 @@ body {
 
 .export-title,
 .symbols-header .panel-title,
+.format-header,
+.panel-title,
 .settings-panel .panel-title {
     text-decoration: underline;
     text-decoration-thickness: 1px;
@@ -349,7 +351,6 @@ body {
     align-items: end;
     padding: 0 12px 0 20px;
     align-self: stretch;
-
 }
 
 .symbols-preview-container {
@@ -471,6 +472,183 @@ body {
 }
 
 
+/* Format Panel */
+
+.format-panel-container {
+    width: 390px;
+    height: 205px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.format-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 12px;
+}
+
+.format-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    align-self: stretch;
+    padding: 0 8px;
+}
+
+.reset-format {
+    background-image: url(/images/reset.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    height: 12px;
+    width: 12px;
+    margin-top: 12px;
+    margin-right: 12px;
+    transform: scale(2.8);
+    transform-origin: center;
+}
+
+
+.format-content-container {
+    width: 360px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.fonts-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fonts-dropdown {
+    background-color: #373737;
+    padding: 12px 80px;
+    border-radius: 8px;
+    border: 2px solid #abb2bf85;
+}
+
+.format-input {
+    height: 48px;
+    width: 56px;
+    box-sizing: border-box;
+    border: 2px solid #373737;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #252526;
+    color: #ABB2BF;
+    line-height: 42px;
+    text-align: center;
+}
+
+.font-sizing-container,
+.line-spacing-container {
+    display: flex;
+    align-items: center;
+}
+
+.font-size-controls,
+.line-spacing-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-button {
+    height: 24px;
+    width: 20px;
+    border: none;
+    background-color: #373737;
+    color: #ABB2BF;
+    margin-right: 2px;
+    font-size: 18px;
+    text-indent: -2px;
+}
+
+.control-button.increase-button {
+    border-top-right-radius: 8px;
+}
+
+.control-button.decrease-button {
+    border-bottom-right-radius: 8px;
+}
+
+.format-button {
+    height: 48px;
+    width: 48px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 2px solid #abb2bf85;
+    background-color: #373737;
+    color: #ABB2BF;
+    text-align: center;
+    font-size: 28px;
+}
+
+.format-button.bold-button,
+.format-button.align-left-button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 1px solid #abb2bf85;
+}
+
+.format-button.italic-button,
+.format-button.align-right-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 1px solid #abb2bf85;
+}
+
+.format-button.align-center-button {
+    border-radius: 0;
+}
+
+.bold-button {
+    font-weight: bold;
+}
+
+.italic-button {
+    font-style: italic;
+}
+
+.text-align-container .format-button {
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.align-left-button {
+    background-image: url(/images/align-left.svg);
+}
+
+.align-center-button {
+    background-image: url(/images/align-center.svg);
+}
+
+.align-right-button {
+    background-image: url(/images/align-right.svg);
+}
+
+.formatting-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-styling-container {
+    display: flex;
+}
+
+.text-align-container {
+    display: flex;
+}
+
 /* ------------- MAIN CONTENT ------------- */
 .main {
     display: flex;
@@ -550,7 +728,7 @@ body {
     background-size: 80% 80%;
 }
 
-.sidebar-button.formatting {
+.sidebar-button.format {
     background-image: url(/images/formatting.svg);
     background-size: 80% 80%;
 }

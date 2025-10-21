@@ -1,9 +1,10 @@
 import { useState, useRef } from 'react';
 import SidebarButton from './SidebarButton.jsx';
 import SidebarItem from './SidebarItem.jsx';
-import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
-import ExportPanel from './SidePanels/Export/ExportPanel.jsx';
 import SymbolsPanel from './SidePanels/Symbols/SymbolsPanel.jsx'
+import FormatPanel from './SidePanels/Formatting/FormatPanel.jsx';
+import ExportPanel from './SidePanels/Export/ExportPanel.jsx';
+import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
 
 function Sidebar({
     onCompileClick,
@@ -60,13 +61,15 @@ function Sidebar({
                 </SidebarItem>
 
                 <SidebarItem
-                    name="formatting"
-                    icon="formatting"
+                    name="format"
+                    icon="format"
                     activePanel={activePanel}
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
+                    panelClassName="format-panel-container"
                 >
-                    {placeholderContent("Formatting")}
+                    <FormatPanel />
+
                 </SidebarItem>
 
                 <SidebarItem
