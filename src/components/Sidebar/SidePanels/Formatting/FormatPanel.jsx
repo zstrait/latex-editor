@@ -39,9 +39,8 @@ function FormatPanel() {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
 
-export default FormatPanel
+export default FormatPanel;
