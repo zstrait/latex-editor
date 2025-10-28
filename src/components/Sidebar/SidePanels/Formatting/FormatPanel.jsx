@@ -1,3 +1,8 @@
+import FormatAlignButton from "./FormatAlignButton";
+import FormatController from "./FormatController";
+import FormatFontMenu from "./FormatFontMenu";
+import FormatStylingButton from "./FormatStylingButton";
+
 function FormatPanel() {
 
     return (
@@ -10,32 +15,32 @@ function FormatPanel() {
 
                 <div className="format-content-container">
                     <div className="fonts-container">
-                        <div className="fonts-dropdown">Default Font</div>
-                        <div className="font-sizing-container">
-                            <div className="font-siz format-input">12pt</div>
-                            <div className="font-size-controls">
-                                <button className="increase-button control-button">+</button>
-                                <button className="decrease-button control-button">-</button>
-                            </div>
-                        </div>
+                        <FormatFontMenu />
+                        <FormatController
+                            controlling="font-size"
+                            initValue={12}
+                        />
                     </div>
                     <div className="formatting-container">
                         <div className="text-styling-container">
-                            <button className="bold-button format-button">B</button>
-                            <button className="italic-button format-button">I</button>
+                            <FormatStylingButton
+                                style="bold"
+                                iconLetter="B"
+                            />
+                            <FormatStylingButton
+                                style="italic"
+                                iconLetter="I"
+                            />
                         </div>
                         <div className="text-align-container">
-                            <button className="align-left-button format-button"></button>
-                            <button className="align-center-button format-button"></button>
-                            <button className="align-right-button format-button"></button>
+                            <FormatAlignButton alignment="left" />
+                            <FormatAlignButton alignment="center" />
+                            <FormatAlignButton alignment="right" />
                         </div>
-                        <div className="line-spacing-container">
-                            <div className="line-spacing format-input">1.25</div>
-                            <div className="line-spacing-controls">
-                                <button className="increase-button control-button">+</button>
-                                <button className="decrease-button control-button">-</button>
-                            </div>
-                        </div>
+                        <FormatController
+                            controlling="line-spacing"
+                            initValue={1.25}
+                        />
                     </div>
                 </div>
             </div>
