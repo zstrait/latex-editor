@@ -22,7 +22,9 @@ function Sidebar({
     handleControllerDec,
     handleResetFormat,
     font,
-    handleFontChange
+    handleFontChange,
+    alignment,
+    handleAlignmentChange
 }) {
 
     const [activePanel, setActivePanel] = useState(null);
@@ -79,10 +81,12 @@ function Sidebar({
                         font={font}
                         fontSize={fontSize}
                         lineSpacing={lineSpacing}
+                        currentAlignment={alignment}
                         handleControllerInc={handleControllerInc}
                         handleControllerDec={handleControllerDec}
-                        handleResetFormat={handleResetFormat}
                         handleFontChange={handleFontChange}
+                        handleAlignmentChange={handleAlignmentChange}
+                        handleResetFormat={handleResetFormat}
                     />
 
                 </SidebarItem>

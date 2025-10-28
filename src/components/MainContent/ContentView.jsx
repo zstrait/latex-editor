@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import LatexEditor from './LatexEditor.jsx';
 import LatexRenderer from './LatexRenderer.jsx';
 
-const ContentView = forwardRef(({ editorText, onChange, isSyntaxHighlighting, textToRender, isAutoNewline, fontSize }, ref) => {
+const ContentView = forwardRef(({ editorText, onChange, isSyntaxHighlighting, textToRender, isAutoNewline, fontSize, alignment}, ref) => {
     return (
         <>
             <LatexEditor
@@ -12,7 +12,11 @@ const ContentView = forwardRef(({ editorText, onChange, isSyntaxHighlighting, te
                 isSyntaxHighlighting={isSyntaxHighlighting}
                 isAutoNewline={isAutoNewline}
             />
-            <LatexRenderer textToRender={textToRender} fontSize={fontSize} />
+            <LatexRenderer
+                textToRender={textToRender}
+                fontSize={fontSize}
+                alignment={alignment}
+            />
         </>
     )
 });

@@ -4,7 +4,17 @@ import FormatController from "./FormatController";
 import FormatFontMenu from "./FormatFontMenu";
 import FormatStylingButton from "./FormatStylingButton";
 
-function FormatPanel({ font, fontSize, lineSpacing, handleControllerInc, handleControllerDec, handleResetFormat, handleFontChange }) {
+function FormatPanel({
+    font,
+    fontSize,
+    lineSpacing,
+    currentAlignment,
+    handleControllerInc,
+    handleControllerDec,
+    handleResetFormat,
+    handleFontChange,
+    handleAlignmentChange
+}) {
     const [isRotating, setIsRotating] = useState(false);
 
     const handleResetClick = () => {
@@ -46,9 +56,21 @@ function FormatPanel({ font, fontSize, lineSpacing, handleControllerInc, handleC
                             />
                         </div>
                         <div className="text-align-container">
-                            <FormatAlignButton alignment="left" />
-                            <FormatAlignButton alignment="center" />
-                            <FormatAlignButton alignment="right" />
+                            <FormatAlignButton
+                                alignment="left"
+                                currentAlignment={currentAlignment}
+                                changeAlignment={handleAlignmentChange}
+                            />
+                            <FormatAlignButton
+                                alignment="center"
+                                currentAlignment={currentAlignment}
+                                changeAlignment={handleAlignmentChange}
+                            />
+                            <FormatAlignButton
+                                alignment="right"
+                                currentAlignment={currentAlignment}
+                                changeAlignment={handleAlignmentChange}
+                            />
                         </div>
                         <FormatController
                             controlling="line-spacing"

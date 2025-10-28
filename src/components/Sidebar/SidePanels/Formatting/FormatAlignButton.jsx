@@ -1,7 +1,13 @@
-function FormatAlignButton({ alignment }) {
+function FormatAlignButton({ alignment, currentAlignment, changeAlignment }) {
+    const isActive = alignment === currentAlignment;
+
     return (
         <>
-            <button className={`align-${alignment}-button format-button`}></button>
+            <button
+                className={`align-${alignment}-button format-button ${isActive ? 'active' : ''}`}
+                onClick={() => changeAlignment(alignment)}
+            >
+            </button>
         </>
     )
 }

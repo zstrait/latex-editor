@@ -535,7 +535,7 @@ body {
     height: 48px;
     display: flex;
     align-items: center;
-    border: 2px solid #abb2bf85;
+    border: 2px solid #75777D;
     background-color: #373737;
     color: #ABB2BF;
     font-size: 20px;
@@ -676,11 +676,29 @@ body {
     width: 48px;
     box-sizing: border-box;
     border-radius: 8px;
-    border: 2px solid #abb2bf85;
+    border: 2px solid #75777D;
     background-color: #373737;
     color: #ABB2BF;
     text-align: center;
     font-size: 28px;
+}
+
+.format-button.align-left-button.active,
+.format-button.align-right-button.active {
+    background-color: #2b2b2b;
+    border: 2px solid #515255;
+}
+
+.format-button.align-center-button.active {
+    background-color: #2b2b2b;
+    border-top: 2px solid #515255;
+    border-bottom: 2px solid #515255;
+}
+
+.format-button:active {
+    background-color: #2b2b2b;
+    border: 2px solid #515255;
+    transform: translate(0, 1px);
 }
 
 .format-button.bold-button,
@@ -799,6 +817,14 @@ body {
     border-top-left-radius: 16px;
     border-left: 2px solid #252526;
     padding: 8px;
+}
+
+.latex-render.align-left .katex-display>.katex {
+    text-align: left;
+}
+
+.latex-render.align-right .katex-display>.katex {
+    text-align: right;
 }
 
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import katex from 'katex';
 
-function LatexRenderer({ textToRender, fontSize }) {
+function LatexRenderer({ textToRender, fontSize, alignment}) {
     const outputDivRef = useRef(null);
 
     useEffect(() => {
@@ -26,14 +26,14 @@ function LatexRenderer({ textToRender, fontSize }) {
     return (
         <>
             <div
-                className="latex-render content-window"
+                className={`latex-render content-window align-${alignment}`}
                 ref={outputDivRef}
                 style={{
                     padding: '20px',
                     overflowY: 'auto',
                     color: '#ABB2BF',
                     backgroundColor: '#1E1E1E',
-                    fontSize: `${fontSize}px`
+                    fontSize: `${fontSize}px`,
                 }}
             >
             </div>

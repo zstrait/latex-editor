@@ -16,7 +16,8 @@ function App() {
     const [isAutoNewline, setIsAutoNewline] = useState(false);
     const [fontSize, setFontSize] = useState(16);
     const [lineSpacing, setLineSpacing] = useState(1.0);
-    const [fontCommand, setFontCommand] = useState('');
+    const [fontCommand, setFontCommand] = useState("");
+    const [alignment, setAlignment] = useState("center");
 
     const editorRef = useRef(null);
 
@@ -45,7 +46,7 @@ function App() {
 
     useEffect(() => {
         setTextToRender(processLatexForRender(editorText));
-    }, [lineSpacing, fontCommand])
+    }, [lineSpacing, fontCommand, alignment])
 
     const handleTextChange = (newText) => {
         setEditorText(newText);
@@ -126,10 +127,15 @@ function App() {
         setFontCommand(command);
     };
 
+    const handleAlignmentChange = (newAlignment) => {
+        setAlignment(newAlignment);
+    }
+
     const handleResetFormat = () => {
         setFontSize(16);
         setLineSpacing(1);
-        setFontCommand('');
+        setFontCommand("");
+        setAlignment("center")
     }
 
     return (
@@ -144,14 +150,18 @@ function App() {
                     onSyntaxHighlightingToggle={handleSyntaxHighlightingToggle}
                     isAutoNewline={isAutoNewline}
                     onAutoNewlineToggle={handleAutoNewlineToggle}
+
                     onExportTxt={handleExportTxt}
                     onInsertText={handleInsertText}
+
+                    font={fontCommand}
                     fontSize={fontSize}
+                    handleFontChange={handleFontChange}
                     lineSpacing={lineSpacing}
                     handleControllerInc={handleControllerInc}
                     handleControllerDec={handleControllerDec}
-                    font={fontCommand}
-                    handleFontChange={handleFontChange}
+                    alignment={alignment}
+                    handleAlignmentChange={handleAlignmentChange}
                     handleResetFormat={handleResetFormat}
                 />
                 <ContentView
@@ -162,6 +172,7 @@ function App() {
                     textToRender={textToRender}
                     isAutoNewline={isAutoNewline}
                     fontSize={fontSize}
+                    alignment={alignment}
                 />
             </div>
         </>
