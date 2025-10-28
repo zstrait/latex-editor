@@ -576,7 +576,22 @@ body {
     margin-right: 2px;
     font-size: 18px;
     text-indent: -2px;
+    transition: background-color 0.15s ease, transform 0.1s ease;
 }
+
+.control-button:hover {
+    background-color: #3e3d3d;
+    color: #bbc1ce;
+}
+
+.control-button:active {
+    background-color: #2b2b2b;
+    color: #ABB2BF;
+    transform: translateY(1px);
+}
+
+
+
 
 .control-button.increase-button {
     border-top-right-radius: 8px;

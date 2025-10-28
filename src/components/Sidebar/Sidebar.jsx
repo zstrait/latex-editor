@@ -15,7 +15,12 @@ function Sidebar({
     isAutoNewline,
     onAutoNewlineToggle,
     onExportTxt,
-    onInsertText
+    onInsertText,
+    fontSize,
+    lineSpacing,
+    handleControllerInc,
+    handleControllerDec,
+    handleResetFormat
 }) {
 
     const [activePanel, setActivePanel] = useState(null);
@@ -68,7 +73,13 @@ function Sidebar({
                     sidebarRef={sidebarRef}
                     panelClassName="format-panel-container"
                 >
-                    <FormatPanel />
+                    <FormatPanel
+                        fontSize={fontSize}
+                        lineSpacing={lineSpacing}
+                        handleControllerInc={handleControllerInc}
+                        handleControllerDec={handleControllerDec}
+                        handleResetFormat={handleResetFormat}
+                    />
 
                 </SidebarItem>
 

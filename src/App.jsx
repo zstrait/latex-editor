@@ -6,19 +6,22 @@ import './App.css';
 
 const RENDER_DELAY_MS = 300;
 
-const processLatexForRender = (text) => {
-    return text.replace(/\\\\/g, '\\\\[1em]');
-};
-
 function App() {
     const initialEditorText = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
+
     const [editorText, setEditorText] = useState(initialEditorText);
-    const [textToRender, setTextToRender] = useState(processLatexForRender(initialEditorText));
+    const [textToRender, setTextToRender] = useState("");
     const [isLiveRendering, setIsLiveRendering] = useState(true);
     const [isSyntaxHighlighting, setIsSyntaxHighlighting] = useState(true);
     const [isAutoNewline, setIsAutoNewline] = useState(false);
+    const [fontSize, setFontSize] = useState(16);
+    const [lineSpacing, setLineSpacing] = useState(1.0);
 
     const editorRef = useRef(null);
+
+    const processLatexForRender = (text) => {
+        return text.replace(/\\\\/g, `\\\\[${lineSpacing}em]`);
+    };
 
     useEffect(() => {
         if (isLiveRendering) {
@@ -31,6 +34,10 @@ function App() {
             };
         }
     }, [editorText, isLiveRendering]);
+
+    useEffect(() => {
+        setTextToRender(processLatexForRender(editorText));
+    }, [lineSpacing])
 
     const handleTextChange = (newText) => {
         setEditorText(newText);
@@ -45,6 +52,7 @@ function App() {
     const handleCompileClick = () => {
         setTextToRender(processLatexForRender(editorText));
     };
+
 
     // Export Panel Handlers
     const handleExportTxt = () => {
@@ -62,6 +70,7 @@ function App() {
         URL.revokeObjectURL(url);
     }
 
+
     // Settings panel handlers
     const handleLiveRenderingToggle = (checked) => {
         setIsLiveRendering(checked);
@@ -74,6 +83,41 @@ function App() {
     const handleSyntaxHighlightingToggle = (checked) => {
         setIsSyntaxHighlighting(checked);
     };
+
+
+    // Format panel handlers
+    const handleControllerInc = (controlling) => {
+        if (controlling == 'font-size') {
+            let newFontSize = fontSize + 2;
+            setFontSize(newFontSize);
+        }
+        else if (controlling == 'line-spacing') {
+            let newSpacing = lineSpacing + 0.25;
+            setLineSpacing(newSpacing);
+        }
+    }
+
+    const handleControllerDec = (controlling) => {
+        if (controlling == 'font-size') {
+            if (fontSize <= 2) {
+                return;
+            }
+            let newFontSize = fontSize - 2;
+            setFontSize(newFontSize);
+        }
+        else if (controlling == 'line-spacing') {
+            if (lineSpacing <= 0.5) {
+                return;
+            }
+            let newSpacing = lineSpacing - 0.25;
+            setLineSpacing(newSpacing);
+        }
+    }
+
+    const handleResetFormat = () => {
+        setFontSize(16);
+        setLineSpacing(1);
+    }
 
     return (
         <>
@@ -89,6 +133,11 @@ function App() {
                     onAutoNewlineToggle={handleAutoNewlineToggle}
                     onExportTxt={handleExportTxt}
                     onInsertText={handleInsertText}
+                    fontSize={fontSize}
+                    lineSpacing={lineSpacing}
+                    handleControllerInc={handleControllerInc}
+                    handleControllerDec={handleControllerDec}
+                    handleResetFormat={handleResetFormat}
                 />
                 <ContentView
                     ref={editorRef}
@@ -97,6 +146,7 @@ function App() {
                     isSyntaxHighlighting={isSyntaxHighlighting}
                     textToRender={textToRender}
                     isAutoNewline={isAutoNewline}
+                    fontSize={fontSize}
                 />
             </div>
         </>

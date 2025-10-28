@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import katex from 'katex';
 
-function LatexRenderer({ textToRender }) {
+function LatexRenderer({ textToRender, fontSize }) {
     const outputDivRef = useRef(null);
 
     useEffect(() => {
@@ -32,7 +32,8 @@ function LatexRenderer({ textToRender }) {
                     padding: '20px',
                     overflowY: 'auto',
                     color: '#ABB2BF',
-                    backgroundColor: '#1E1E1E'
+                    backgroundColor: '#1E1E1E',
+                    fontSize: `${fontSize}px`
                 }}
             >
             </div>

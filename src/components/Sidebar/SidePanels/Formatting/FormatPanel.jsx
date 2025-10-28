@@ -3,14 +3,13 @@ import FormatController from "./FormatController";
 import FormatFontMenu from "./FormatFontMenu";
 import FormatStylingButton from "./FormatStylingButton";
 
-function FormatPanel() {
-
+function FormatPanel({ fontSize, lineSpacing, handleControllerInc, handleControllerDec, handleResetFormat }) {
     return (
         <>
             <div className="format-panel panel-content">
                 <div className="format-header">
                     <div className="panel-title">Formatting</div>
-                    <button className="reset-format"></button>
+                    <button className="reset-format" onClick={() => handleResetFormat()}></button>
                 </div>
 
                 <div className="format-content-container">
@@ -18,7 +17,9 @@ function FormatPanel() {
                         <FormatFontMenu />
                         <FormatController
                             controlling="font-size"
-                            initValue={12}
+                            value={fontSize}
+                            handleControllerInc={handleControllerInc}
+                            handleControllerDec={handleControllerDec}
                         />
                     </div>
                     <div className="formatting-container">
@@ -39,7 +40,9 @@ function FormatPanel() {
                         </div>
                         <FormatController
                             controlling="line-spacing"
-                            initValue={1.25}
+                            value={lineSpacing}
+                            handleControllerInc={handleControllerInc}
+                            handleControllerDec={handleControllerDec}
                         />
                     </div>
                 </div>
