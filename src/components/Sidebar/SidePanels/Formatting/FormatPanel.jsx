@@ -1,15 +1,27 @@
+import { useState } from "react"
 import FormatAlignButton from "./FormatAlignButton";
 import FormatController from "./FormatController";
 import FormatFontMenu from "./FormatFontMenu";
 import FormatStylingButton from "./FormatStylingButton";
 
 function FormatPanel({ font, fontSize, lineSpacing, handleControllerInc, handleControllerDec, handleResetFormat, handleFontChange }) {
+    const [isRotating, setIsRotating] = useState(false);
+
+    const handleResetClick = () => {
+        handleResetFormat();
+        setIsRotating(true);
+
+        setTimeout(() => {
+            setIsRotating(false);
+        }, 400);
+    };
+
     return (
         <>
             <div className="format-panel panel-content">
                 <div className="format-header">
                     <div className="panel-title">Formatting</div>
-                    <button className="reset-format" onClick={() => handleResetFormat()}></button>
+                    <button className={`reset-format ${isRotating ? "rotating" : ""}`} onClick={() => handleResetClick()}></button>
                 </div>
 
                 <div className="format-content-container">
