@@ -16,12 +16,20 @@ function App() {
     const [isAutoNewline, setIsAutoNewline] = useState(false);
     const [fontSize, setFontSize] = useState(16);
     const [lineSpacing, setLineSpacing] = useState(1.0);
+    const [fontCommand, setFontCommand] = useState('');
 
     const editorRef = useRef(null);
 
     const processLatexForRender = (text) => {
-        return text.replace(/\\\\/g, `\\\\[${lineSpacing}em]`);
-    };
+        const lines = text.split(/\\\\/g);
+
+        if (fontCommand && fontCommand !== '') {
+            const wrappedLines = lines.map(line => `\\${fontCommand}{${line}}`);
+            return wrappedLines.join(`\\\\[${lineSpacing}em]`);
+        }
+
+        return lines.join(`\\\\[${lineSpacing}em]`);
+    }
 
     useEffect(() => {
         if (isLiveRendering) {
@@ -37,7 +45,7 @@ function App() {
 
     useEffect(() => {
         setTextToRender(processLatexForRender(editorText));
-    }, [lineSpacing])
+    }, [lineSpacing, fontCommand])
 
     const handleTextChange = (newText) => {
         setEditorText(newText);
@@ -114,9 +122,14 @@ function App() {
         }
     }
 
+    const handleFontChange = (command) => {
+        setFontCommand(command);
+    };
+
     const handleResetFormat = () => {
         setFontSize(16);
         setLineSpacing(1);
+        setFontCommand('');
     }
 
     return (
@@ -137,6 +150,8 @@ function App() {
                     lineSpacing={lineSpacing}
                     handleControllerInc={handleControllerInc}
                     handleControllerDec={handleControllerDec}
+                    font={fontCommand}
+                    handleFontChange={handleFontChange}
                     handleResetFormat={handleResetFormat}
                 />
                 <ContentView

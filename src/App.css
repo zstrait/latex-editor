@@ -512,11 +512,70 @@ body {
     align-items: center;
 }
 
-.fonts-dropdown {
-    background-color: #373737;
-    padding: 12px 80px;
-    border-radius: 8px;
+.Dropdown-root {
+    width: 262px;
+}
+
+.fonts-container .Dropdown-control {
+    border-radius: 12px;
+    height: 48px;
+    display: flex;
+    align-items: center;
     border: 2px solid #abb2bf85;
+    background-color: #373737;
+    color: #ABB2BF;
+    font-size: 20px;
+    z-index: 5;
+}
+
+.fonts-container .Dropdown-arrow {
+    transform: translate(0, 6px);
+}
+
+.fonts-container .Dropdown-menu {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding-top: 12px;
+    transform: translate(0, -12px);
+    z-index: 1;
+    border: none;
+    background-color: #373737;
+    border-right: 1px solid #abb2bf85;
+    border-left: 1px solid #abb2bf85;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.fonts-container .Dropdown-menu .Dropdown-group>.Dropdown-title {
+    padding: 8px 10px;
+    color: rgba(51, 51, 51, 1);
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.fonts-container .Dropdown-option {
+    box-sizing: border-box;
+    color: rgba(51, 51, 51, 0.8);
+    cursor: pointer;
+    display: block;
+    border-bottom: 1px dotted #abb2bf85;
+    background-color: #373737;
+    color: #ABB2BF;
+}
+
+.fonts-container .Dropdown-option:last-child {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom: 1px solid #abb2bf85;
+}
+
+.fonts-container .Dropdown-option.is-selected {
+    background-color: #292929;
+    color: #ABB2BF;
+}
+
+.fonts-container .Dropdown-option:hover {
+  background-color: #292929;
+  color: #ABB2BF;
 }
 
 .format-input {
@@ -589,9 +648,6 @@ body {
     color: #ABB2BF;
     transform: translateY(1px);
 }
-
-
-
 
 .control-button.increase-button {
     border-top-right-radius: 8px;

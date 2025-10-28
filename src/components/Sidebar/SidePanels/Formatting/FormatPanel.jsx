@@ -3,7 +3,7 @@ import FormatController from "./FormatController";
 import FormatFontMenu from "./FormatFontMenu";
 import FormatStylingButton from "./FormatStylingButton";
 
-function FormatPanel({ fontSize, lineSpacing, handleControllerInc, handleControllerDec, handleResetFormat }) {
+function FormatPanel({ font, fontSize, lineSpacing, handleControllerInc, handleControllerDec, handleResetFormat, handleFontChange }) {
     return (
         <>
             <div className="format-panel panel-content">
@@ -14,7 +14,7 @@ function FormatPanel({ fontSize, lineSpacing, handleControllerInc, handleControl
 
                 <div className="format-content-container">
                     <div className="fonts-container">
-                        <FormatFontMenu />
+                        <FormatFontMenu font={font} handleFontChange={handleFontChange} />
                         <FormatController
                             controlling="font-size"
                             value={fontSize}

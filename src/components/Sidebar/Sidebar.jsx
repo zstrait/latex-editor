@@ -20,7 +20,9 @@ function Sidebar({
     lineSpacing,
     handleControllerInc,
     handleControllerDec,
-    handleResetFormat
+    handleResetFormat,
+    font,
+    handleFontChange
 }) {
 
     const [activePanel, setActivePanel] = useState(null);
@@ -74,11 +76,13 @@ function Sidebar({
                     panelClassName="format-panel-container"
                 >
                     <FormatPanel
+                        font={font}
                         fontSize={fontSize}
                         lineSpacing={lineSpacing}
                         handleControllerInc={handleControllerInc}
                         handleControllerDec={handleControllerDec}
                         handleResetFormat={handleResetFormat}
+                        handleFontChange={handleFontChange}
                     />
 
                 </SidebarItem>
