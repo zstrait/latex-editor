@@ -20,11 +20,13 @@ function Sidebar({
     lineSpacing,
     handleControllerInc,
     handleControllerDec,
-    handleResetFormat,
     font,
     handleFontChange,
     alignment,
-    handleAlignmentChange
+    handleAlignmentChange,
+    currentStyle,
+    handleStyleChange,
+    handleResetFormat
 }) {
 
     const [activePanel, setActivePanel] = useState(null);
@@ -86,6 +88,8 @@ function Sidebar({
                         handleControllerDec={handleControllerDec}
                         handleFontChange={handleFontChange}
                         handleAlignmentChange={handleAlignmentChange}
+                        currentStyle={currentStyle}
+                        handleStyleChange={handleStyleChange}
                         handleResetFormat={handleResetFormat}
                     />
 

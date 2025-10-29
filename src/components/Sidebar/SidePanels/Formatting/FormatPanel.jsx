@@ -11,9 +11,11 @@ function FormatPanel({
     currentAlignment,
     handleControllerInc,
     handleControllerDec,
-    handleResetFormat,
     handleFontChange,
-    handleAlignmentChange
+    handleAlignmentChange,
+    currentStyle,
+    handleStyleChange,
+    handleResetFormat
 }) {
     const [isRotating, setIsRotating] = useState(false);
 
@@ -49,10 +51,14 @@ function FormatPanel({
                             <FormatStylingButton
                                 style="bold"
                                 iconLetter="B"
+                                currentStyle={currentStyle}
+                                handleStyleChange={handleStyleChange}
                             />
                             <FormatStylingButton
                                 style="italic"
                                 iconLetter="I"
+                                currentStyle={currentStyle}
+                                handleStyleChange={handleStyleChange}
                             />
                         </div>
                         <div className="text-align-container">

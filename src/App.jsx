@@ -14,10 +14,12 @@ function App() {
     const [isLiveRendering, setIsLiveRendering] = useState(true);
     const [isSyntaxHighlighting, setIsSyntaxHighlighting] = useState(true);
     const [isAutoNewline, setIsAutoNewline] = useState(false);
+
     const [fontSize, setFontSize] = useState(16);
-    const [lineSpacing, setLineSpacing] = useState(1.0);
     const [fontCommand, setFontCommand] = useState("");
+    const [lineSpacing, setLineSpacing] = useState(1.0);
     const [alignment, setAlignment] = useState("center");
+    const [currentStyle, setCurrentStyle] = useState("");
 
     const editorRef = useRef(null);
 
@@ -25,12 +27,21 @@ function App() {
         const lines = text.split(/\\\\/g);
 
         if (fontCommand && fontCommand !== '') {
-            const wrappedLines = lines.map(line => `\\${fontCommand}{${line}}`);
+            let wrappedLines = lines.map(line => `\\${fontCommand}{${line}}`);
             return wrappedLines.join(`\\\\[${lineSpacing}em]`);
+        }
+        else if (currentStyle === 'italic') {
+            let wrappedLines = lines.map(line => `\\mathit{${line}}`);
+            return wrappedLines.join(`\\\\[${lineSpacing}em]`);
+        }
+        else if (currentStyle === 'bold') {
+            let wrappedLines = lines.map(line => `\\mathbf{${line}}`);
+            return wrappedLines.join(`\\\\[${lineSpacing}em]`);
+
         }
 
         return lines.join(`\\\\[${lineSpacing}em]`);
-    }
+    };
 
     useEffect(() => {
         if (isLiveRendering) {
@@ -46,7 +57,7 @@ function App() {
 
     useEffect(() => {
         setTextToRender(processLatexForRender(editorText));
-    }, [lineSpacing, fontCommand, alignment])
+    }, [lineSpacing, fontCommand, alignment, currentStyle])
 
     const handleTextChange = (newText) => {
         setEditorText(newText);
@@ -127,6 +138,14 @@ function App() {
         setFontCommand(command);
     };
 
+    const handleStyleChange = (style) => {
+        if (currentStyle === style) {
+            setCurrentStyle('');
+            return;
+        }
+        setCurrentStyle(style);
+    }
+
     const handleAlignmentChange = (newAlignment) => {
         setAlignment(newAlignment);
     }
@@ -136,6 +155,7 @@ function App() {
         setLineSpacing(1);
         setFontCommand("");
         setAlignment("center")
+        setCurrentStyle("");
     }
 
     return (
@@ -162,6 +182,8 @@ function App() {
                     handleControllerDec={handleControllerDec}
                     alignment={alignment}
                     handleAlignmentChange={handleAlignmentChange}
+                    currentStyle={currentStyle}
+                    handleStyleChange={handleStyleChange}
                     handleResetFormat={handleResetFormat}
                 />
                 <ContentView

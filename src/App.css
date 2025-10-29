@@ -727,6 +727,12 @@ body {
     font-style: italic;
 }
 
+.bold-button.active,
+.italic-button.active {
+    background-color: #2b2b2b;
+    border: 2px solid #515255;
+}
+
 .text-align-container .format-button {
     background-size: 65%;
     background-repeat: no-repeat;
