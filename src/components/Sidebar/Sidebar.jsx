@@ -131,7 +131,8 @@ function Sidebar({
                     sidebarRef={sidebarRef}
                     panelClassName="files-panel-container"
                 >
-                    <FilesPanel />
+                    {placeholderContent("Files")}
+                    {/* <FilesPanel /> */}
                 </SidebarItem>
 
                 <SidebarItem
