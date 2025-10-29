@@ -5,10 +5,26 @@ import ContentView from './components/MainContent/ContentView.jsx';
 import './App.css';
 
 const RENDER_DELAY_MS = 300;
+const initialEditorText = `\\text{--- Live LaTeX Editor --- } \\\\
+\\text{Welcome! I hope you enjoy and find this project somewhat neat/useful.} \\\\
+--------------------------- \\\\
+
+\\text{Sample Equations: } \\\\
+
+x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\\\
+
+e = \\mathop {\\lim }\\limits_{n \\to \\infty } \\left( {1 + \\frac{1}{n}} \\right)^n  \\\\
+
+\\sin x = \\sum\\limits_{n = 1}^\\infty  {\\frac{{\\left( { - 1} \\right)^{n - 1} x^{2n - 1} }}{{\\left( {2n - 1} \\right)!}}} \\\\
+
+F(x) = \\int^a_b \\frac{1}{3}x^3 \\\\
+
+\\oint_C {E \\cdot d\\ell  =  - \\frac{d}{{dt}}} \\int_S {B_n dA} \\\\
+
+y(x,t) = \\sum\\limits_n {A_n \\cos (\\omega_n t + \\delta_n )\\sin (k_n x)} \\\\ \n\n\n`;
+// \\text{( If you need any help, feel free to click the  [ ? ]  icon on the  sidebar )} \\\\
 
 function App() {
-    const initialEditorText = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
-
     const [editorText, setEditorText] = useState(initialEditorText);
     const [textToRender, setTextToRender] = useState("");
     const [isLiveRendering, setIsLiveRendering] = useState(true);

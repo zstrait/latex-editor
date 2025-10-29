@@ -4,6 +4,7 @@ import SidebarItem from './SidebarItem.jsx';
 import SymbolsPanel from './SidePanels/Symbols/SymbolsPanel.jsx'
 import FormatPanel from './SidePanels/Formatting/FormatPanel.jsx';
 import ExportPanel from './SidePanels/Export/ExportPanel.jsx';
+import FilesPanel from './SidePanels/Files/FilesPanel.jsx';
 import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
 
 function Sidebar({
@@ -128,8 +129,9 @@ function Sidebar({
                     activePanel={activePanel}
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
+                    panelClassName="files-panel-container"
                 >
-                    {placeholderContent("Files")}
+                    <FilesPanel />
                 </SidebarItem>
 
                 <SidebarItem

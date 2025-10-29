@@ -764,6 +764,32 @@ body {
     display: flex;
 }
 
+
+/* Files Panel */
+.files-panel-container {
+    width: 250px;
+    height: 250px;
+}
+
+.files-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 12px;
+}
+
+.upload-button {
+    width: 170px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+
+
+
+
 /* ------------- MAIN CONTENT ------------- */
 .main {
     display: flex;
@@ -832,6 +858,7 @@ body {
 .latex-render.align-right .katex-display>.katex {
     text-align: right;
 }
+
 
 
 /* ------------- ICONS ------------- */
