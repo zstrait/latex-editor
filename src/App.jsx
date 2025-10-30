@@ -21,8 +21,7 @@ F(x) = \\int^a_b \\frac{1}{3}x^3 \\\\
 
 \\oint_C {E \\cdot d\\ell  =  - \\frac{d}{{dt}}} \\int_S {B_n dA} \\\\
 
-y(x,t) = \\sum\\limits_n {A_n \\cos (\\omega_n t + \\delta_n )\\sin (k_n x)} \\\\ \n\n\n`;
-// \\text{( If you need any help, feel free to click the  [ ? ]  icon on the  sidebar )} \\\\
+y(x,t) = \\sum\\limits_n {A_n \\cos (\\omega_n t + \\delta_n )\\sin (k_n x)} \\\\ \n`;
 
 function App() {
     const [editorText, setEditorText] = useState(initialEditorText);
