@@ -6,6 +6,7 @@ import FormatPanel from './SidePanels/Formatting/FormatPanel.jsx';
 import ExportPanel from './SidePanels/Export/ExportPanel.jsx';
 import FilesPanel from './SidePanels/Files/FilesPanel.jsx';
 import SettingsPanel from './SidePanels/Settings/SettingsPanel.jsx';
+import ReferencesPanel from './SidePanels/Reference/ReferencesPanel.jsx';
 
 function Sidebar({
     onCompileClick,
@@ -97,13 +98,14 @@ function Sidebar({
                 </SidebarItem>
 
                 <SidebarItem
-                    name="cheatsheet"
-                    icon="cheatsheet"
+                    name="references"
+                    icon="references"
                     activePanel={activePanel}
                     onToggle={handlePanelToggle}
                     sidebarRef={sidebarRef}
+                    panelClassName="references-panel-container"
                 >
-                    {placeholderContent("Cheatsheet")}
+                    <ReferencesPanel />
                 </SidebarItem>
             </div>
 

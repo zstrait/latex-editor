@@ -131,14 +131,16 @@ body {
 
 .page-button:hover,
 .sidebar-button:hover,
-.symbols-button:hover {
+.symbols-button:hover,
+.copy-reference-button:hover {
     transform: scale(1.03);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
 }
 
 .page-button:active,
 .sidebar-button:active,
-.symbols-button:active {
+.symbols-button:active,
+.copy-reference-button:active {
     transform: scale(1.00) translateY(2px);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.1);
     background-color: #282828;
@@ -765,6 +767,187 @@ body {
 }
 
 
+
+/* Reference Sheet Panel */
+.references-panel-container {
+    width: 600px;
+    height: 450px;
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+}
+
+.references-panel .panel-title {
+    padding: 8px 0 0 12px;
+}
+
+.references-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.references-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #373737;
+    height: 382px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-of-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 160px;
+    /* gap: 12px; */
+    box-sizing: border-box;
+    background-color: #373737;
+    border-bottom-left-radius: 26px;
+    border-top-left-radius: 18px;
+    box-shadow: 4px 0 4px rgba(0, 0, 0, 0.03);
+}
+
+.toc-header {
+    padding: 10px 12px 16px 12px;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-size: 18px;
+
+}
+
+.section-link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+    font-style: italic;
+    transform: translateX(-8px);
+}
+
+.section-link {
+    position: relative;
+    width: 100%;
+}
+
+.section-link:hover {
+    color: rgb(108, 145, 249);
+    transform: translateX(12px);
+    cursor: pointer;
+}
+
+.section-link:hover::before {
+    position: absolute;
+    content: '→';
+    top: 0;
+    left: 0;
+    transform: translatex(-14px);
+}
+
+.reference-sheet {
+    display: flex;
+    flex-direction: column;
+    /* border-left: 1px solid white; */
+    gap: 32px;
+    overflow: scroll;
+    /* overflow: hidden; */
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    position: relative;
+    border-bottom-right-radius: 28px;
+    border-top-right-radius: 18px;
+}
+
+.reference-sheet::after {
+    position: absolute;
+    content: '';
+    top: 24px;
+    bottom: -12px;
+    left: 52%;
+    /* width: 2px; */
+    border-left: 2px dashed #2D2D2D;
+    ;
+    transform: translateX(-52%);
+    background-color: #373737;
+
+}
+
+.reference-section {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px dotted lightblue; */
+    gap: 16px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: #abb2bf7b;
+}
+
+.section-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.reference-items-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    /* border: 1px solid red; */
+    flex-grow: 1;
+    padding-left: 16px;
+}
+
+.reference-item {
+    display: flex;
+    justify-content: space-between;
+    width: 190px;
+}
+
+.reference-symbol {
+    font-size: 18px;
+}
+
+.reference-command {
+    color: #C06A6E;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-style: dotted;
+    text-decoration-color: #a6595dc0;
+    ;
+}
+
+.copy-reference-button {
+    height: 24px;
+    width: 48px;
+    border: 2px solid #abb2bf5e;
+    background-color: #2D2D2D;
+    color: #8e9198;
+    border-radius: 6px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+.copy-reference-button:hover {
+    color: #ABB2BF;
+}
+
+
 /* Files Panel */
 .files-panel-container {
     width: 250px;
@@ -785,7 +968,6 @@ body {
     border-radius: 12px;
     font-size: 20px;
 }
-
 
 
 
@@ -880,7 +1062,7 @@ body {
     background-size: 80% 80%;
 }
 
-.sidebar-button.cheatsheet {
+.sidebar-button.references {
     background-image: url(/images/keyboard.svg);
     background-size: 90% 90%;
 }
