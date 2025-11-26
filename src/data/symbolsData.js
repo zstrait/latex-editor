@@ -9,7 +9,9 @@ export const symbolsData = {
                 { icon: 'leq', code: '\\leq' },
                 { icon: 'neq', code: '\\neq' }
             ]
-        },
+        }
+    ],
+    Logic: [
         {
             subtitle: 'Logic & Sets',
             symbols: [
@@ -18,13 +20,6 @@ export const symbolsData = {
                 { icon: 'rarrow', code: '\\rightarrow' },
                 { icon: 'forall', code: '\\forall' },
                 { icon: 'exists', code: '\\exists' }
-            ]
-        },
-        {
-            subtitle: 'Miscellaneous',
-            symbols: [
-                { icon: 'infin', code: '\\infty' },
-                { icon: 'triangle', code: '\\triangle' }
             ]
         }
     ],
@@ -101,6 +96,15 @@ export const symbolsData = {
                 { icon: 'limit', code: '\\lim_{x\\to\\infty}' },
                 { icon: 'sqrt', code: '\\sqrt{x}' },
                 { icon: 'frac', code: '\\frac{a}{b}' }
+            ]
+        }
+    ],
+    Other: [
+        {
+            subtitle: 'Miscellaneous',
+            symbols: [
+                { icon: 'infin', code: '\\infty' },
+                { icon: 'triangle', code: '\\triangle' }
             ]
         }
     ]

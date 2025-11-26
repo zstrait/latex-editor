@@ -11,6 +11,11 @@ body {
     height: 100vh;
 }
 
+button:hover,
+a:hover {
+    cursor: pointer;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -135,6 +140,7 @@ body {
 .copy-reference-button:hover {
     transform: scale(1.03);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
 }
 
 .page-button:active,
@@ -391,6 +397,10 @@ body {
     font-weight: bold;
     padding: 0 8px;
     width: 100%;
+}
+
+.symbols-category:hover {
+    cursor: pointer;
 }
 
 .symbols-category.operators {
@@ -770,14 +780,14 @@ body {
 
 /* Reference Sheet Panel */
 .references-panel-container {
-    width: 600px;
-    height: 450px;
+    width: 796px;
+    height: 442px;
     border-bottom-left-radius: 36px;
     border-bottom-right-radius: 36px;
 }
 
 .references-panel .panel-title {
-    padding: 8px 0 0 12px;
+    padding: 4px 0 0 12px;
 }
 
 .references-panel {
@@ -792,11 +802,13 @@ body {
     align-items: center;
     border: 2px solid #373737;
     height: 382px;
+    width: 100.5%;
     border-bottom-right-radius: 28px;
     border-bottom-left-radius: 28px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+    transform: translateX(-4px);
 }
 
 .table-of-contents {
@@ -814,7 +826,7 @@ body {
 }
 
 .toc-header {
-    padding: 10px 12px 16px 12px;
+    padding: 10px 12px 20px 12px;
     font-weight: bold;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -826,14 +838,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 12px;
+    gap: 14px;
     font-style: italic;
-    transform: translateX(-8px);
+    transform: translateX(-4px);
 }
 
 .section-link {
     position: relative;
     width: 100%;
+    text-decoration: none;
+    color: #ABB2BF;
+}
+
+.section-link:visited {
+    position: relative;
+    text-decoration: none;
+    color: #ABB2BF;
 }
 
 .section-link:hover {
@@ -854,7 +874,7 @@ body {
     display: flex;
     flex-direction: column;
     /* border-left: 1px solid white; */
-    gap: 32px;
+    gap: 42px;
     overflow: scroll;
     /* overflow: hidden; */
     height: 100%;
@@ -870,30 +890,28 @@ body {
     position: absolute;
     content: '';
     top: 24px;
-    bottom: -12px;
-    left: 52%;
-    /* width: 2px; */
-    border-left: 2px dashed #2D2D2D;
-    ;
-    transform: translateX(-52%);
+    bottom: -800px;
+    left: 51%;
+    width: 2px;
     background-color: #373737;
-
 }
 
 .reference-section {
     display: flex;
     flex-direction: column;
-    /* border: 1px dotted lightblue; */
     gap: 16px;
 }
 
 .section-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
     text-decoration-color: #abb2bf7b;
+    scroll-margin-top: 16px;
+    transform: translatex(8px);
+    padding-bottom: 4px;
 }
 
 .section-content {
@@ -906,24 +924,39 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 28px;
     /* border: 1px solid red; */
     flex-grow: 1;
     padding-left: 16px;
 }
 
 .reference-item {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    width: 190px;
+    width: 260px;
+}
+
+.reference-item::after {
+    position: absolute;
+    content: '';
+    width: 110%;
+    bottom: 0;
+    transform: translate(-5%, 12px);
+    border-bottom: 1px dashed #373737;
 }
 
 .reference-symbol {
-    font-size: 18px;
+    /* font-size: 18px; */
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .reference-command {
-    color: #C06A6E;
+    color: #d4676d;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
     text-decoration: underline;
     text-underline-offset: 8px;
@@ -933,7 +966,7 @@ body {
 }
 
 .copy-reference-button {
-    height: 24px;
+    height: 28px;
     width: 48px;
     border: 2px solid #abb2bf5e;
     background-color: #2D2D2D;
@@ -1089,118 +1122,146 @@ body {
 }
 
 
-/* ---- Symbol Buttons ---- */
+/* ---- Symbols ---- */
 /* Operators */
-.symbols-button.plusminus {
+.symbols-button.plusminus,
+.reference-symbol.plusminus {
     background-image: url(/images/symbols/plusminus.svg)
 }
 
-.symbols-button.division {
+.symbols-button.division,
+.reference-symbol.division {
     background-image: url(/images/symbols/division.svg)
 }
 
-.symbols-button.geq {
+.symbols-button.geq,
+.reference-symbol.geq {
     background-image: url(/images/symbols/geq.svg)
 }
 
-.symbols-button.leq {
+.symbols-button.leq,
+.reference-symbol.leq {
     background-image: url(/images/symbols/leq.svg)
 }
 
-.symbols-button.neq {
+.symbols-button.neq,
+.reference-symbol.neq {
     background-image: url(/images/symbols/neq.svg)
 }
 
-.symbols-button.land {
+.symbols-button.land,
+.reference-symbol.land {
     background-image: url(/images/symbols/land.svg)
 }
 
-.symbols-button.lor {
+.symbols-button.lor,
+.reference-symbol.lor {
     background-image: url(/images/symbols/lor.svg)
 }
 
-.symbols-button.rarrow {
+.symbols-button.rarrow,
+.reference-symbol.rarrow {
     background-image: url(/images/symbols/rarrow.svg)
 }
 
-.symbols-button.forall {
+.symbols-button.forall,
+.reference-symbol.forall {
     background-image: url(/images/symbols/forall.svg)
 }
 
-.symbols-button.exists {
+.symbols-button.exists,
+.reference-symbol.exists {
     background-image: url(/images/symbols/exists.svg)
 }
 
-.symbols-button.infin {
+.symbols-button.infin,
+.reference-symbol.infin {
     background-image: url(/images/symbols/infin.svg)
 }
 
-.symbols-button.triangle {
+.symbols-button.triangle,
+.reference-symbol.triangle {
     background-image: url(/images/symbols/triangle.svg)
 }
 
 /* Greek */
-.symbols-button.alpha {
+.symbols-button.alpha,
+.reference-symbol.alpha {
     background-image: url(/images/symbols/alpha.svg)
 }
 
-.symbols-button.beta {
+.symbols-button.beta,
+.reference-symbol.beta {
     background-image: url(/images/symbols/beta.svg)
 }
 
-.symbols-button.chi {
+.symbols-button.chi,
+.reference-symbol.chi {
     background-image: url(/images/symbols/chi.svg)
 }
 
-.symbols-button.delta {
+.symbols-button.delta,
+.reference-symbol.delta {
     background-image: url(/images/symbols/delta.svg)
 }
 
-.symbols-button.epsilon {
+.symbols-button.epsilon,
+.reference-symbol.epsilon {
     background-image: url(/images/symbols/epsilon.svg)
 }
 
-.symbols-button.deltaUp {
+.symbols-button.deltaUp,
+.reference-symbol.deltaUp {
     background-image: url(/images/symbols/deltaUp.svg)
 }
 
-.symbols-button.gammaUp {
+.symbols-button.gammaUp,
+.reference-symbol.gammaUp {
     background-image: url(/images/symbols/gammaUp.svg)
 }
 
-.symbols-button.lambdaUp {
+.symbols-button.lambdaUp,
+.reference-symbol.lambdaUp {
     background-image: url(/images/symbols/lambdaUp.svg)
 }
 
-.symbols-button.omegaUp {
+.symbols-button.omegaUp,
+.reference-symbol.omegaUp {
     background-image: url(/images/symbols/omegaUp.svg)
 }
 
 /* Structures */
-.symbols-button.summation {
+.symbols-button.summation,
+.reference-symbol.summation {
     background-image: url(/images/symbols/summation.svg)
 }
 
-.symbols-button.product {
+.symbols-button.product,
+.reference-symbol.product {
     background-image: url(/images/symbols/product.svg)
 }
 
-.symbols-button.integral {
+.symbols-button.integral,
+.reference-symbol.integral {
     background-image: url(/images/symbols/integral.svg)
 }
 
-.symbols-button.integral-bounds {
+.symbols-button.integral-bounds,
+.reference-symbol.integral-bounds {
     background-image: url(/images/symbols/integral-bounds.svg)
 }
 
-.symbols-button.limit {
+.symbols-button.limit,
+.reference-symbol.limit {
     background-image: url(/images/symbols/limit.svg)
 }
 
-.symbols-button.sqrt {
+.symbols-button.sqrt,
+.reference-symbol.sqrt {
     background-image: url(/images/symbols/sqrt.svg)
 }
 
-.symbols-button.frac {
+.symbols-button.frac,
+.reference-symbol.frac {
     background-image: url(/images/symbols/frac.svg)
 }

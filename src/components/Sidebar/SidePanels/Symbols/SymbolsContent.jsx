@@ -1,6 +1,11 @@
 import SymbolsItem from "./SymbolsItem";
+import { symbolsData } from "../../../../data/symbolsData";
 
 function SymbolsContent({ subcategories, onInsertText, onClosePanel }) {
+
+    if (subcategories == symbolsData['Operators']) {
+        subcategories = symbolsData['Operators'].concat(symbolsData['Logic']).concat(symbolsData['Other']);
+    }
 
     return (
         <>

@@ -1,7 +1,15 @@
-import ReferenceItem from "./ReferenceItem";
 import ReferenceToC from "./ReferenceToC";
+import ReferenceSection from "./ReferenceSection";
+import { symbolsData } from '../../../../data/symbolsData';
 
 function ReferencesPanel() {
+    let operators = symbolsData['Operators'];
+    let logic = symbolsData['Logic'];
+    let greek = symbolsData['Greek'];
+    let structures = symbolsData['Structures'];
+    let other = symbolsData['Other'];
+
+
     return (
         <>
             <div className="references-panel panel-content">
@@ -9,56 +17,35 @@ function ReferencesPanel() {
                 <div className="references-content">
                     <ReferenceToC />
                     <div className="reference-sheet">
-                        <div className="reference-section">
-                            <div className="section-title">Arithmetic</div>
-                            <div className="section-content">
-                                <div className="reference-items-container left-references">
-                                    <ReferenceItem
-                                        symbol="+"
-                                        command="\plus"
-                                    />
-                                    <ReferenceItem
-                                        symbol="≠"
-                                        command="\neq"
-                                    />
-                                </div>
-                                <div className="reference-items-container right-references">
-                                    <ReferenceItem
-                                        symbol="≥"
-                                        command="\qeq"
-                                    />
-                                    <ReferenceItem
-                                        symbol="≤"
-                                        command="\leq"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reference-section">
-                            <div className="section-title">OtherSample</div>
-                            <div className="section-content">
-                                <div className="reference-items-container">
-                                    <ReferenceItem
-                                        symbol="≥"
-                                        command="\qeq"
-                                    />
-                                    <ReferenceItem
-                                        symbol="≤"
-                                        command="\leq"
-                                    />
-                                </div>
-                                <div className="reference-items-container right-references">
-                                    <ReferenceItem
-                                        symbol="+"
-                                        command="\plus"
-                                    />
-                                    <ReferenceItem
-                                        symbol="≠"
-                                        command="\neq"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                        <ReferenceSection
+                            sectionId="operators-section"
+                            section="Operators"
+                            items={operators}
+                        />
+                        <ReferenceSection
+                            sectionId="logic-section"
+                            section="Logic & Sets"
+                            items={logic}
+                        />
+                        <ReferenceSection
+                            sectionId="greek-section"
+                            section="Greek"
+                            items={greek}
+                        />
+                        <ReferenceSection
+                            sectionId="structures-section"
+                            section="Structures"
+                            items={structures}
+                        />
+                        {/* <ReferenceSection
+                            sectionId="formatting-section"
+                            section="Formatting"
+                        /> */}
+                        <ReferenceSection
+                            sectionId="other-section"
+                            section="Other"
+                            items={other}
+                        />
                     </div>
                 </div>
             </div>

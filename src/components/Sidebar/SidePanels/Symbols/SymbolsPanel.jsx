@@ -4,14 +4,20 @@ import SymbolsMenu from "./SymbolsMenu";
 import SymbolsContent from './SymbolsContent';
 import { symbolsData } from '../../../../data/symbolsData';
 
-function SymbolsPanel({ checked, onChange, onInsertText, onClosePanel }) {
+function SymbolsPanel({ onInsertText, onClosePanel }) {
     const [activeCategory, setActiveCategory] = useState('Operators');
+    const [checked, setChecked] = useState(false);
 
     const handleCategoryClick = (category) => {
         setActiveCategory(category);
+        console.log(subcategories);
     };
 
     let subcategories = symbolsData[activeCategory];
+
+    const onChange = () => {
+        setChecked(!checked);
+    }
 
     return (
         <>
@@ -24,8 +30,8 @@ function SymbolsPanel({ checked, onChange, onInsertText, onClosePanel }) {
                             checked={checked}
                             onColor={'#576E86'}
                             onHandleColor={'#9CC8F5'}
-                            uncheckedIcon={false}
-                            checkedIcon={false}
+                            uncheckedIcon={checked}
+                            checkedIcon={checked}
                             onChange={onChange}
                             height={20}
                             width={50}
