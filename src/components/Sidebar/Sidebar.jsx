@@ -48,7 +48,9 @@ function Sidebar({
     return (
 
         <div className="sidebar" ref={sidebarRef}>
+            
             <div className="tools-container">
+     <a className="github-button" href="https://github.com/zstraight/latex-editor" target="_blank"></a>
                 <SidebarItem
                     name="help"
                     icon="help"

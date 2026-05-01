@@ -22,68 +22,7 @@ a:hover {
     height: 100vh;
 }
 
-/* ------------- HEADER ------------- */
-.header {
-    background-color: #252526;
-    color: #ABB2BF;
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
-    padding: 2px 12px;
-}
 
-.right-container,
-.left-container,
-.page-buttons {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    justify-content: center;
-}
-
-.left-container {
-    margin-left: 2px;
-}
-
-.github-button {
-    height: 60px;
-    width: 60px;
-    background-size: contain;
-    background-image: url(/images/github.svg);
-    margin-top: 4px;
-    transition: transform 0.3s ease;
-}
-
-.github-button:hover {
-    transform: scale(1.15);
-}
-
-.page-button {
-    background-color: #2D2D2D;
-    color: #ABB2BF;
-    border: 1px solid #333333;
-    border-radius: 8px;
-    height: 48px;
-    width: 144px;
-    font-size: 1.2em;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.profile-button {
-    height: 52px;
-    width: 52px;
-    margin-right: 8px;
-    background-color: transparent;
-    border: none;
-    background-size: contain;
-    background-image: url(/images/pfp.svg);
-}
-
-.darkmode-toggle {
-    color: #ABB2BF;
-    font-size: 36px;
-    margin-top: 8px;
-}
 
 
 /* ------------- SIDEBAR ------------- */
@@ -94,7 +33,7 @@ a:hover {
     flex-direction: column;
     flex-shrink: 0;
     justify-content: space-between;
-    padding: 24px 12px 24px 10px;
+    padding: 18px 12px 24px 10px;
 }
 
 /* .sidebar-toggle {
@@ -105,16 +44,31 @@ a:hover {
     width: 50px;
 } */
 
+.github-button {
+    height: 52px;
+    width: 52px;
+    background-size: contain;
+    background-image: url(/images/github2.svg);
+    transition: transform 0.3s ease;
+    margin-bottom: 2px;
+}
+
+.github-button:hover {
+    transform: scale(1.1);
+}
+
 .tools-container,
 .utilities-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .tools-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    align-items: center;
 }
 
 .utilities-container {
@@ -1020,6 +974,7 @@ a:hover {
 .content-window {
     flex: 1;
     /* overflow: hidden; */
+    margin-top: 16px;
 }
 
 /* Latex Editor Window */

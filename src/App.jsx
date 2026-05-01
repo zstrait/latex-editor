@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import Header from './components/Header.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import ContentView from './components/MainContent/ContentView.jsx';
 import './App.css';
@@ -175,7 +174,6 @@ function App() {
 
     return (
         <>
-            <Header></Header>
             <div className="main">
                 <Sidebar
                     onCompileClick={handleCompileClick}
